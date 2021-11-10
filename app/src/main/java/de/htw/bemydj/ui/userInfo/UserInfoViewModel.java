@@ -1,16 +1,16 @@
-package de.htw.bemydj.ui.gallery;
+package de.htw.bemydj.ui.userInfo;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class GalleryViewModel extends ViewModel {
+public class UserInfoViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public GalleryViewModel() {
+    public UserInfoViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is gallery fragment");
+        mText.setValue("This is UserInfo fragment");
     }
 
     public LiveData<String> getText() {

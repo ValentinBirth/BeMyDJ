@@ -12,14 +12,20 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="de.htw.bemydj.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_user_info"
+        android:name="de.htw.bemydj.ui.userInfo.UserInfoFragment"
+        android:label="@string/menu_user_info"
+        tools:layout="@layout/fragment_user_info" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="de.htw.bemydj.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_network_info"
+        android:name="de.htw.bemydj.ui.networkInfo.NetworkInfoFragment"
+        android:label="@string/menu_network_info"
+        tools:layout="@layout/fragment_network_info" />
+
+    <fragment
+        android:id="@+id/nav_app_info"
+        android:name="de.htw.bemydj.ui.appInfo.AppInfoFragment"
+        android:label="@string/menu_app_info"
+        tools:layout="@layout/fragment_app_info" />
 </navigation>

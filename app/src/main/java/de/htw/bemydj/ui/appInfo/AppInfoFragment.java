@@ -1,4 +1,4 @@
-package de.htw.bemydj.ui.slideshow;
+package de.htw.bemydj.ui.appInfo;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,24 +12,23 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import de.htw.bemydj.R;
-import de.htw.bemydj.databinding.FragmentSlideshowBinding;
+import de.htw.bemydj.databinding.FragmentAppInfoBinding;
 
-public class SlideshowFragment extends Fragment {
+public class AppInfoFragment extends Fragment {
 
-    private SlideshowViewModel slideshowViewModel;
-    private FragmentSlideshowBinding binding;
+    private AppInfoViewModel appInfoViewModel;
+    private FragmentAppInfoBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        slideshowViewModel =
-                new ViewModelProvider(this).get(SlideshowViewModel.class);
+        appInfoViewModel =
+                new ViewModelProvider(this).get(AppInfoViewModel.class);
 
-        binding = FragmentSlideshowBinding.inflate(inflater, container, false);
+        binding = FragmentAppInfoBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textSlideshow;
-        slideshowViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        final TextView textView = binding.textAppInfo;
+        appInfoViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
