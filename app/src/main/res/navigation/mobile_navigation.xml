@@ -17,11 +17,11 @@
         android:label="@string/menu_user_info"
         tools:layout="@layout/fragment_user_info" />
 
-    <fragment
+    <activity
         android:id="@+id/nav_network_info"
-        android:name="de.htw.bemydj.ui.networkInfo.NetworkInfoFragment"
+        android:name="de.htw.bemydj.ui.networkInfo.NetworkInfoActivity"
         android:label="@string/menu_network_info"
-        tools:layout="@layout/fragment_network_info" />
+        tools:layout="@layout/activity_network_info" />
 
     <fragment
         android:id="@+id/nav_app_info"

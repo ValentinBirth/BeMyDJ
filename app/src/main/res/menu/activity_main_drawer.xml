@@ -14,7 +14,7 @@
             android:title="@string/menu_user_info" />
         <item
             android:id="@+id/nav_network_info"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_menu_networkinfo"
             android:title="@string/menu_network_info" />
         <item
             android:id="@+id/nav_app_info"
