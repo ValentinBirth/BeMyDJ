@@ -42,6 +42,10 @@ public class NetworkControlActivity extends AppCompatActivity {
     private DiscoverPeersListener discoverPeersListener;
     private ConnectListener connectListener;
 
+    private SectionsPagerAdapter sectionsPagerAdapter;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,20 +53,14 @@ public class NetworkControlActivity extends AppCompatActivity {
         binding = ActivityNetworkControlBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
-        ViewPager viewPager = binding.viewPager;
+        sectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        sectionsPagerAdapter.addFragment(new NetworkControlFragment(),"Network Control");
+        sectionsPagerAdapter.addFragment(new AvailablePeersFragment(),"Available Peers");
+        sectionsPagerAdapter.addFragment(new GroupFragment(),"Group");
+        viewPager = binding.viewPager;
         viewPager.setAdapter(sectionsPagerAdapter);
-        TabLayout tabs = binding.tabs;
-        tabs.setupWithViewPager(viewPager);
-        FloatingActionButton fab = binding.fab;
-
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        tabLayout = binding.tabs;
+        tabLayout.setupWithViewPager(viewPager);
 
         peers = new ArrayList<>();
         manager = (WifiP2pManager) getSystemService(Context.WIFI_P2P_SERVICE);

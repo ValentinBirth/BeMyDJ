@@ -24,11 +24,13 @@ public class DJControl implements IDJControl{
     @Override
     public boolean startStreaming(UserImpl User, TrackImpl Track) {
         return false;
+        //TODO Implementation missing
     }
 
     @Override
     public boolean stopStreaming(UserImpl User) {
         return false;
+        //TODO Implementation missing
     }
 
     @Override
@@ -43,6 +45,6 @@ public class DJControl implements IDJControl{
 
     @Override
     public boolean syncWarteschlange(LinkedList<TrackImpl> Warteschlange) {
-        return false;
+        return false; //TODO Implementation missing
     }
 }
