@@ -18,10 +18,10 @@
         tools:layout="@layout/fragment_user_info" />
 
     <activity
-        android:id="@+id/nav_network_info"
-        android:name="de.htw.bemydj.ui.networkInfo.NetworkInfoActivity"
-        android:label="@string/menu_network_info"
-        tools:layout="@layout/activity_network_info" />
+        android:id="@+id/nav_network_control"
+        android:name="de.htw.bemydj.ui.networkInfo.NetworkControlActivity"
+        android:label="@string/menu_network_control"
+        tools:layout="@layout/activity_network_control" />
 
     <fragment
         android:id="@+id/nav_app_info"

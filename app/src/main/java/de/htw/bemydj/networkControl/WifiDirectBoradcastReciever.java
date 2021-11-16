@@ -9,15 +9,15 @@ import android.net.wifi.p2p.WifiP2pManager;
 
 import androidx.core.app.ActivityCompat;
 
-import de.htw.bemydj.ui.networkInfo.NetworkInfoActivity;
+import de.htw.bemydj.ui.networkInfo.NetworkControlActivity;
 
 public class WifiDirectBoradcastReciever extends BroadcastReceiver {
     private WifiP2pManager manager;
     private WifiP2pManager.Channel channel;
-    private NetworkInfoActivity activity;
+    private NetworkControlActivity activity;
     private PeerListListener peerListListener;
 
-    public WifiDirectBoradcastReciever(WifiP2pManager manager, WifiP2pManager.Channel channel, NetworkInfoActivity activity) {
+    public WifiDirectBoradcastReciever(WifiP2pManager manager, WifiP2pManager.Channel channel,   NetworkControlActivity activity) {
         super();
         this.manager = manager;
         this.channel = channel;
@@ -44,8 +44,6 @@ public class WifiDirectBoradcastReciever extends BroadcastReceiver {
             }
         } else if (WifiP2pManager.WIFI_P2P_CONNECTION_CHANGED_ACTION.equals(action)) {
             //TODO Respond to new connection or disconnections
-        } else if (WifiP2pManager.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION.equals(action)) {
-            //TODO Respond to this device's wifi state changing
         }
     }
 }

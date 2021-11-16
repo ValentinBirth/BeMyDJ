@@ -3,12 +3,12 @@ package de.htw.bemydj.networkControl;
 import android.net.wifi.p2p.WifiP2pManager;
 import android.widget.Toast;
 
-import de.htw.bemydj.ui.networkInfo.NetworkInfoActivity;
+import de.htw.bemydj.ui.networkInfo.NetworkControlActivity;
 
 public class DiscoverPeersListener implements WifiP2pManager.ActionListener{
-    NetworkInfoActivity activity;
+    NetworkControlActivity activity;
 
-    public DiscoverPeersListener(NetworkInfoActivity activity){
+    public DiscoverPeersListener(  NetworkControlActivity activity){
         this.activity=activity;
     }
 

@@ -3,16 +3,15 @@ package de.htw.bemydj.networkControl;
 import android.net.wifi.p2p.WifiP2pDevice;
 import android.net.wifi.p2p.WifiP2pDeviceList;
 import android.net.wifi.p2p.WifiP2pManager;
-import android.widget.ArrayAdapter;
 
 import java.util.Collection;
 
-import de.htw.bemydj.ui.networkInfo.NetworkInfoActivity;
+import de.htw.bemydj.ui.networkInfo.NetworkControlActivity;
 
 public class PeerListListener implements WifiP2pManager.PeerListListener{
-    NetworkInfoActivity activity;
+    NetworkControlActivity activity;
 
-    public PeerListListener(NetworkInfoActivity activity){
+    public PeerListListener(  NetworkControlActivity activity){
         this.activity=activity;
     }
     @Override

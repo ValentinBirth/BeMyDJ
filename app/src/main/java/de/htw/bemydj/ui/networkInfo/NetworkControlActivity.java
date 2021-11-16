@@ -1,9 +1,5 @@
 package de.htw.bemydj.ui.networkInfo;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
 import android.Manifest;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -14,17 +10,30 @@ import android.net.wifi.p2p.WifiP2pConfig;
 import android.net.wifi.p2p.WifiP2pDevice;
 import android.net.wifi.p2p.WifiP2pManager;
 import android.os.Bundle;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.tabs.TabLayout;
+
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.view.View;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import de.htw.bemydj.R;
+import de.htw.bemydj.databinding.ActivityNetworkControlBinding;
 import de.htw.bemydj.networkControl.ConnectListener;
 import de.htw.bemydj.networkControl.DiscoverPeersListener;
 import de.htw.bemydj.networkControl.WifiDirectBoradcastReciever;
 
-public class NetworkInfoActivity extends AppCompatActivity {
+public class NetworkControlActivity extends AppCompatActivity {
+
+    private ActivityNetworkControlBinding binding;
     private WifiP2pManager manager;
     private WifiP2pManager.Channel chanel;
     private BroadcastReceiver receiver;
@@ -36,8 +45,26 @@ public class NetworkInfoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_network_info);
-        peers = new ArrayList<WifiP2pDevice>();
+
+        binding = ActivityNetworkControlBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
+        ViewPager viewPager = binding.viewPager;
+        viewPager.setAdapter(sectionsPagerAdapter);
+        TabLayout tabs = binding.tabs;
+        tabs.setupWithViewPager(viewPager);
+        FloatingActionButton fab = binding.fab;
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+
+        peers = new ArrayList<>();
         manager = (WifiP2pManager) getSystemService(Context.WIFI_P2P_SERVICE);
         chanel = manager.initialize(this, getMainLooper(), null);
         receiver = new WifiDirectBoradcastReciever(manager, chanel, this);
@@ -69,17 +96,17 @@ public class NetworkInfoActivity extends AppCompatActivity {
         if (requestCode == 1) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
-                Toast.makeText(NetworkInfoActivity.this, "Permission Granted", Toast.LENGTH_SHORT).show();
+                Toast.makeText(NetworkControlActivity.this, "Permission Granted", Toast.LENGTH_SHORT).show();
 
             } else {
-                Toast.makeText(NetworkInfoActivity.this, "Permission Denied", Toast.LENGTH_SHORT).show();
+                Toast.makeText(NetworkControlActivity.this, "Permission Denied", Toast.LENGTH_SHORT).show();
             }
         }
     }
 
     public void startPeerDiscovery() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(NetworkInfoActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+            ActivityCompat.requestPermissions(NetworkControlActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
             manager.discoverPeers(chanel, discoverPeersListener);
         }
     }
@@ -93,7 +120,7 @@ public class NetworkInfoActivity extends AppCompatActivity {
         config.deviceAddress = device.deviceAddress;
         config.wps.setup = WpsInfo.PBC;
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(NetworkInfoActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+            ActivityCompat.requestPermissions(NetworkControlActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
             manager.connect(chanel, config, connectListener);
         }
     }
