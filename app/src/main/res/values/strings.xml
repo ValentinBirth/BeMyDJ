@@ -2,8 +2,6 @@
     <string name="app_name">BeMyDJ</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
@@ -11,13 +9,11 @@
     <string name="menu_user_info">User Info</string>
     <string name="menu_app_info">App Info</string>
     <string name="menu_network_control">Network Control</string>
-    <string name="title_activity_network_controll">NetworkControllActivity</string>
 
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_network_control">NetworkControlActivity</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="tab_text_1">Network Control</string>
-    <string name="tab_text_2">Available Peers</string>
-    <string name="tab_text_3">Group</string>
-    <string name="title_activity_test">TestActivity</string>
+    <string name="network_control_tab_1">Network Control</string>
+    <string name="network_control_tab_2">Available Listeners</string>
+    <string name="network_control_tab_3">Group</string>
+    <string name="network_control_discover_peers">Search for Listeners</string>
 </resources>

@@ -4,4 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/Grey3">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/availablePeersRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp">
+    </androidx.recyclerview.widget.RecyclerView>
 </LinearLayout>

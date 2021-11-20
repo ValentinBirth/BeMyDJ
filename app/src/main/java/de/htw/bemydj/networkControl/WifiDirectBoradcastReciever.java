@@ -6,7 +6,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.wifi.p2p.WifiP2pManager;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 
 import de.htw.bemydj.ui.networkInfo.NetworkControlActivity;
@@ -24,6 +26,7 @@ public class WifiDirectBoradcastReciever extends BroadcastReceiver {
         this.activity = activity;
         peerListListener = new PeerListListener(activity);
     }
+
 
     @Override
     public void onReceive(Context context, Intent intent) {

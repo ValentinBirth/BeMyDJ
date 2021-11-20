@@ -16,15 +16,20 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.core.app.ActivityCompat;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import de.htw.bemydj.R;
 
 import de.htw.bemydj.databinding.ActivityNetworkControlBinding;
 import de.htw.bemydj.networkControl.ConnectListener;
@@ -39,6 +44,8 @@ public class NetworkControlActivity extends AppCompatActivity {
     private BroadcastReceiver receiver;
     private IntentFilter intentFilter;
     private List<WifiP2pDevice> peers;
+    private List<String> deviceNames = new ArrayList<>();
+    private List<WifiP2pDevice> devices = new ArrayList<>();
     private DiscoverPeersListener discoverPeersListener;
     private ConnectListener connectListener;
 
@@ -54,9 +61,9 @@ public class NetworkControlActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         sectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-        sectionsPagerAdapter.addFragment(new NetworkControlFragment(),"Network Control");
-        sectionsPagerAdapter.addFragment(new AvailablePeersFragment(),"Available Peers");
-        sectionsPagerAdapter.addFragment(new GroupFragment(),"Group");
+        sectionsPagerAdapter.addFragment(new NetworkControlFragment(this), "Network Control");
+        sectionsPagerAdapter.addFragment(new AvailablePeersFragment(this), "Available Listeners");
+        sectionsPagerAdapter.addFragment(new GroupFragment(), "Group");
         viewPager = binding.viewPager;
         viewPager.setAdapter(sectionsPagerAdapter);
         tabLayout = binding.tabs;
@@ -73,13 +80,13 @@ public class NetworkControlActivity extends AppCompatActivity {
         intentFilter.addAction(WifiP2pManager.WIFI_P2P_STATE_CHANGED_ACTION);
         intentFilter.addAction(WifiP2pManager.WIFI_P2P_PEERS_CHANGED_ACTION);
         intentFilter.addAction(WifiP2pManager.WIFI_P2P_CONNECTION_CHANGED_ACTION);
-    }
+        //TODO Peers cant find others
 
+    }
     @Override
     protected void onResume() {
         super.onResume();
         registerReceiver(receiver, intentFilter);
-        startPeerDiscovery();
     }
 
     @Override
@@ -109,6 +116,10 @@ public class NetworkControlActivity extends AppCompatActivity {
         }
     }
 
+    public void stopPeerDiscovery(){
+        //TODO implement stopPeerDiscovery
+    }
+
     public List<WifiP2pDevice> getPeers() {
         return peers;
     }
@@ -121,5 +132,13 @@ public class NetworkControlActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(NetworkControlActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
             manager.connect(chanel, config, connectListener);
         }
+    }
+
+    public List<String> getDeviceNames() {
+        return deviceNames;
+    }
+
+    public List<WifiP2pDevice> getDevices() {
+        return devices;
     }
 }

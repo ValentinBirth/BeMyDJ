@@ -20,7 +20,7 @@ public class GroupFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        v = inflater.inflate(R.layout.fragment_available_peers,container,false);
+        v = inflater.inflate(R.layout.fragment_group,container,false);
         return v;
     }
 }
