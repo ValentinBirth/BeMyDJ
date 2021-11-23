@@ -1,4 +1,4 @@
-package de.htw.bemydj.ui.home;
+package de.htw.bemydj.ui.mainView;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

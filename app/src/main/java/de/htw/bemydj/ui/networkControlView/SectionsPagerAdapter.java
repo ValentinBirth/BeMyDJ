@@ -1,9 +1,9 @@
-package de.htw.bemydj.ui.networkInfo;
+package de.htw.bemydj.ui.networkControlView;
 
-import android.content.Context;
+
 
 import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -11,12 +11,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.htw.bemydj.R;
 
-/**
- * A [FragmentPagerAdapter] that returns a fragment corresponding to
- * one of the sections/tabs/pages.
- */
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     private final List<Fragment> fragmentList = new ArrayList<>();

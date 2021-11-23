@@ -1,4 +1,4 @@
-package de.htw.bemydj.ui.networkInfo;
+package de.htw.bemydj.ui.networkControlView;
 
 import android.Manifest;
 import android.content.BroadcastReceiver;
@@ -11,25 +11,17 @@ import android.net.wifi.p2p.WifiP2pDevice;
 import android.net.wifi.p2p.WifiP2pManager;
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.SwitchCompat;
 import androidx.core.app.ActivityCompat;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.view.View;
-import android.widget.CompoundButton;
-import android.widget.Switch;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import de.htw.bemydj.R;
 
 import de.htw.bemydj.databinding.ActivityNetworkControlBinding;
 import de.htw.bemydj.networkControl.ConnectListener;
@@ -43,9 +35,11 @@ public class NetworkControlActivity extends AppCompatActivity {
     private WifiP2pManager.Channel chanel;
     private BroadcastReceiver receiver;
     private IntentFilter intentFilter;
+
     private List<WifiP2pDevice> peers;
-    private List<String> deviceNames = new ArrayList<>();
-    private List<WifiP2pDevice> devices = new ArrayList<>();
+    private List<String> deviceNames;
+    private List<WifiP2pDevice> devices;
+
     private DiscoverPeersListener discoverPeersListener;
     private ConnectListener connectListener;
 
@@ -80,7 +74,12 @@ public class NetworkControlActivity extends AppCompatActivity {
         intentFilter.addAction(WifiP2pManager.WIFI_P2P_STATE_CHANGED_ACTION);
         intentFilter.addAction(WifiP2pManager.WIFI_P2P_PEERS_CHANGED_ACTION);
         intentFilter.addAction(WifiP2pManager.WIFI_P2P_CONNECTION_CHANGED_ACTION);
+
+        deviceNames = new ArrayList<>();
+        devices = new ArrayList<>();
         //TODO Peers cant find others
+        //TODO Add Toolbar like in MainActivity to open the Nav Drawer
+        //TODO all Network related into own class in networkControl
 
     }
     @Override
@@ -132,6 +131,14 @@ public class NetworkControlActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(NetworkControlActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
             manager.connect(chanel, config, connectListener);
         }
+    }
+
+    public void setDeviceNames(List<String> deviceNames) {
+        this.deviceNames = deviceNames;
+    }
+
+    public void setDevices(List<WifiP2pDevice> devices) {
+        this.devices = devices;
     }
 
     public List<String> getDeviceNames() {

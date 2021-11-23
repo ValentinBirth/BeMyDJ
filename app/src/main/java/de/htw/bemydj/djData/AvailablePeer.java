@@ -1,4 +1,4 @@
-package de.htw.bemydj.ui.networkInfo;
+package de.htw.bemydj.djData;
 
 public class AvailablePeer {
 

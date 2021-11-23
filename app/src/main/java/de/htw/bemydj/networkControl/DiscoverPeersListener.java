@@ -1,9 +1,10 @@
 package de.htw.bemydj.networkControl;
 
 import android.net.wifi.p2p.WifiP2pManager;
-import android.widget.Toast;
+import android.widget.TextView;
 
-import de.htw.bemydj.ui.networkInfo.NetworkControlActivity;
+import de.htw.bemydj.R;
+import de.htw.bemydj.ui.networkControlView.NetworkControlActivity;
 
 public class DiscoverPeersListener implements WifiP2pManager.ActionListener{
     NetworkControlActivity activity;
@@ -14,11 +15,13 @@ public class DiscoverPeersListener implements WifiP2pManager.ActionListener{
 
     @Override
     public void onSuccess() {
-        Toast.makeText(activity, "Discovery started", Toast.LENGTH_SHORT).show();
+        TextView connectionStatus = activity.findViewById(R.id.connectionStatus);
+        connectionStatus.setText(R.string.discovery_started);
     }
 
     @Override
     public void onFailure(int reason) {
-        Toast.makeText(activity, "Discovery failed", Toast.LENGTH_SHORT).show();
+        TextView connectionStatus = activity.findViewById(R.id.connectionStatus);
+        connectionStatus.setText(R.string.discovery_failed);
     }
 }

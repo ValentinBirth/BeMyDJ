@@ -1,4 +1,4 @@
-package de.htw.bemydj.ui.networkInfo;
+package de.htw.bemydj.ui.networkControlView;
 
 import android.view.View;
 import android.widget.TextView;

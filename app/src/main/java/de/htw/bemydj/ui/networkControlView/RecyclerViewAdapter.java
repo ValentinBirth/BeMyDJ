@@ -1,4 +1,4 @@
-package de.htw.bemydj.ui.networkInfo;
+package de.htw.bemydj.ui.networkControlView;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import de.htw.bemydj.R;
+import de.htw.bemydj.djData.AvailablePeer;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolderAvailablePeers> {
 
