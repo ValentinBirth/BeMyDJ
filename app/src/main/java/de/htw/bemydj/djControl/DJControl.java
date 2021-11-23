@@ -9,13 +9,13 @@ import de.htw.bemydj.djData.UserImpl;
 
 public class DJControl implements IDJControl{
     @Override
-    public ITrack getFirstTrack(LinkedList<ITrack> Warteschlange) {
-        return Warteschlange.get(0);
+    public ITrack getFirstTrack(LinkedList<ITrack> queue) {
+        return queue.get(0);
     }
 
     @Override
-    public ITrack getNextTrack(LinkedList<ITrack> Warteschlange) {
-        return Warteschlange.get(1);
+    public ITrack getNextTrack(LinkedList<ITrack> queue) {
+        return queue.get(1);
     }
 
     @Override
@@ -46,7 +46,7 @@ public class DJControl implements IDJControl{
     }
 
     @Override
-    public boolean syncWarteschlange(LinkedList<ITrack> Warteschlange) {
+    public boolean syncQueue(LinkedList<ITrack> queue) {
         return false; //TODO Implementation missing
     }
 }

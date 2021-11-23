@@ -18,7 +18,7 @@ public class UserImpl implements IUser{
     }
 
     @Override
-    public LinkedList<TrackImpl> getWarteschlange() {
+    public LinkedList<TrackImpl> getQueue() {
         return Warteschlange;
     }
 
