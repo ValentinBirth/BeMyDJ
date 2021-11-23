@@ -53,7 +53,7 @@ public interface IDJControl {
      */
     void removeTrack(LinkedList<ITrack> queue, ITrack Track);
 
-    /** synconise the queue between devices
+    /** synchronise the queue between devices
      * @param queue queue
      * @return true if successful, else false
      */
