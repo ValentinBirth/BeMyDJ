@@ -11,18 +11,26 @@ import android.net.wifi.p2p.WifiP2pDevice;
 import android.net.wifi.p2p.WifiP2pManager;
 import android.os.Bundle;
 
+import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.view.Menu;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import de.htw.bemydj.R;
 import de.htw.bemydj.databinding.ActivityNetworkControlBinding;
 import de.htw.bemydj.networkControl.ConnectListener;
 import de.htw.bemydj.networkControl.DiscoverPeersListener;
