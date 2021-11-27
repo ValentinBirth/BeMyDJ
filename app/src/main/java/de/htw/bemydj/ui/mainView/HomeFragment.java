@@ -28,6 +28,7 @@ import de.htw.bemydj.musicControl.ChooseMusicFileListener;
 import de.htw.bemydj.musicControl.MediaPlayerFfListener;
 import de.htw.bemydj.musicControl.MediaPlayerOnCompletionListener;
 import de.htw.bemydj.musicControl.MediaPlayerOnErrorListener;
+import de.htw.bemydj.musicControl.MediaPlayerOnPreparedListener;
 import de.htw.bemydj.musicControl.MediaPlayerPauseListener;
 import de.htw.bemydj.musicControl.MediaPlayerPlayListener;
 import de.htw.bemydj.musicControl.MediaPlayerRewindListener;
@@ -70,8 +71,10 @@ public class HomeFragment extends Fragment {
         .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
         .setUsage(AudioAttributes.USAGE_MEDIA)
         .build());
+        //TODO Medial Player wont go in prepare state
         resetMediaPlayer();
-        mediaPlayer.setOnErrorListener(new MediaPlayerOnErrorListener());
+        mediaPlayer.setOnErrorListener(new MediaPlayerOnErrorListener(this));
+        mediaPlayer.setOnPreparedListener(new MediaPlayerOnPreparedListener(this));
         Runnable musicPlayerThread = new Runnable() {
 
             @Override
@@ -84,12 +87,6 @@ public class HomeFragment extends Fragment {
         int duration = mediaPlayer.getDuration();
         String sduration = convertFormat(duration);
         playerDuration.setText(sduration);
-        btPlay.setOnClickListener(new MediaPlayerPlayListener(this));
-        btPause.setOnClickListener(new MediaPlayerPauseListener(this));
-        btFor.setOnClickListener(new MediaPlayerFfListener(this));
-        btRew.setOnClickListener(new MediaPlayerRewindListener(this));
-        seekBar.setOnSeekBarChangeListener(new MediaPlayerSeekBarChangeListener(this));
-        //mediaPlayer.setOnCompletionListener(new MediaPlayerOnCompletionListener(this)); causes invalid state error on seekTo method
 
         return v;
     }
@@ -104,8 +101,13 @@ public class HomeFragment extends Fragment {
             mediaPlayer.setDataSource(musicFileUriTest.getPath());
             mediaPlayer.prepareAsync();
             return true;
-        } catch (IOException | NullPointerException e) {
-            e.printStackTrace();
+        } catch (IOException e) {
+            TextView test = v.findViewById(R.id.textViewTest);
+            test.setText("Error IO Exeption");
+            return false;
+        }catch (NullPointerException e){
+            TextView test = v.findViewById(R.id.textViewTest);
+            test.setText("Error Null Exeption");
             return false;
         }
     }

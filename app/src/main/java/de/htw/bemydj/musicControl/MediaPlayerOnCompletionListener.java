@@ -18,6 +18,5 @@ public class MediaPlayerOnCompletionListener implements MediaPlayer.OnCompletion
         homeFragment.requireView().findViewById(R.id.btnPause).setVisibility(View.GONE);
         homeFragment.requireView().findViewById(R.id.btnPlay).setVisibility(View.VISIBLE);
         homeFragment.getMediaPlayer().seekTo(0);
-
     }
 }

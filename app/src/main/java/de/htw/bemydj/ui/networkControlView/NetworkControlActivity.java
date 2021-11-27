@@ -11,30 +11,22 @@ import android.net.wifi.p2p.WifiP2pDevice;
 import android.net.wifi.p2p.WifiP2pManager;
 import android.os.Bundle;
 
-import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.view.Menu;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import de.htw.bemydj.R;
 import de.htw.bemydj.databinding.ActivityNetworkControlBinding;
 import de.htw.bemydj.networkControl.ConnectListener;
 import de.htw.bemydj.networkControl.DiscoverPeersListener;
-import de.htw.bemydj.networkControl.WifiDirectBoradcastReciever;
+import de.htw.bemydj.networkControl.WifiP2pBoradcastReciever;
 
 public class NetworkControlActivity extends AppCompatActivity {
 
@@ -74,7 +66,7 @@ public class NetworkControlActivity extends AppCompatActivity {
         peers = new ArrayList<>();
         manager = (WifiP2pManager) getSystemService(Context.WIFI_P2P_SERVICE);
         chanel = manager.initialize(this, getMainLooper(), null);
-        receiver = new WifiDirectBoradcastReciever(manager, chanel, this);
+        receiver = new WifiP2pBoradcastReciever(manager, chanel, this);
         discoverPeersListener = new DiscoverPeersListener(this);
         connectListener = new ConnectListener(this);
 
@@ -88,7 +80,6 @@ public class NetworkControlActivity extends AppCompatActivity {
         //TODO Peers cant find others
         //TODO Add Toolbar like in MainActivity to open the Nav Drawer
         //TODO all Network related into own class in networkControl
-
     }
     @Override
     protected void onResume() {

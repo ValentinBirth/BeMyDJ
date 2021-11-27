@@ -6,18 +6,20 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.wifi.p2p.WifiP2pManager;
+import android.util.Log;
 
 import androidx.core.app.ActivityCompat;
 
 import de.htw.bemydj.ui.networkControlView.NetworkControlActivity;
 
-public class WifiDirectBoradcastReciever extends BroadcastReceiver {
+public class WifiP2pBoradcastReciever extends BroadcastReceiver {
+    private static final String TAG = WifiP2pBoradcastReciever.class.getName();
     private WifiP2pManager manager;
     private WifiP2pManager.Channel channel;
     private NetworkControlActivity activity;
     private PeerListListener peerListListener;
 
-    public WifiDirectBoradcastReciever(WifiP2pManager manager, WifiP2pManager.Channel channel,   NetworkControlActivity activity) {
+    public WifiP2pBoradcastReciever(WifiP2pManager manager, WifiP2pManager.Channel channel, NetworkControlActivity activity) {
         super();
         this.manager = manager;
         this.channel = channel;
@@ -33,8 +35,10 @@ public class WifiDirectBoradcastReciever extends BroadcastReceiver {
             int state = intent.getIntExtra(WifiP2pManager.EXTRA_WIFI_STATE, -1);
             if (state == WifiP2pManager.WIFI_P2P_STATE_ENABLED) {
                 // Wi-Fi P2P is enabled
+                Log.e(TAG, "WIFI_P2P_STATE_ENABLED");
             } else {
                 // Wi-Fi P2P is not enabled
+                Log.e(TAG, "WIFI_P2P_STATE_NOT_ENABLED");
             }
         } else if (WifiP2pManager.WIFI_P2P_PEERS_CHANGED_ACTION.equals(action)) {
             if (manager != null) {

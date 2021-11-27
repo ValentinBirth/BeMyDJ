@@ -3,6 +3,7 @@ package de.htw.bemydj.networkControl;
 import android.net.wifi.p2p.WifiP2pDevice;
 import android.net.wifi.p2p.WifiP2pDeviceList;
 import android.net.wifi.p2p.WifiP2pManager;
+import android.util.Log;
 
 import java.util.List;
 
@@ -30,10 +31,10 @@ public class PeerListListener implements WifiP2pManager.PeerListListener{
             activity.setDevices(devices);
             activity.setDeviceNames(deviceNames);
             // TODO Peers cant find others
-            //TODO Logging Founded Peers
-
+            Log.e("peers", activity.getPeers().toString());
+            Log.e("peers", devices.toString());
             if (activity.getPeers().size() == 0) {
-                //TODO Logging No Device Found
+                Log.e(PeerListListener.class.getName(), "No devices found");
             }
         }
     }
