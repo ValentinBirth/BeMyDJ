@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/Grey3"
-    tools:context=".ui.mainView.HomeFragment">
+    tools:context=".ui.homeScreen.HomeFragment">
 
     <Button
         android:id="@+id/musicButton"

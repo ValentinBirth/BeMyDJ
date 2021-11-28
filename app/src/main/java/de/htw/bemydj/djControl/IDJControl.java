@@ -6,7 +6,7 @@ import de.htw.bemydj.djData.ITrack;
 import de.htw.bemydj.djData.IUser;
 
 /**
- *  Interface for the controlls of the app
+ *  Interface for the controls of the app
  */
 public interface IDJControl {
 

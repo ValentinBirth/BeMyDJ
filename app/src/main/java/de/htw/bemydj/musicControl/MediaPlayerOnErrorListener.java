@@ -1,9 +1,8 @@
 package de.htw.bemydj.musicControl;
 
 import android.media.MediaPlayer;
-import android.widget.Toast;
 
-import de.htw.bemydj.ui.mainView.HomeFragment;
+import de.htw.bemydj.ui.homeScreen.HomeFragment;
 
 public class MediaPlayerOnErrorListener implements MediaPlayer.OnErrorListener{
     private final HomeFragment homeFragment;

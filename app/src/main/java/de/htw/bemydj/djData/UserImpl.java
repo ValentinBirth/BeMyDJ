@@ -5,7 +5,7 @@ import java.util.LinkedList;
 public class UserImpl implements IUser{
     private String Name;
     private int id;
-    private LinkedList<TrackImpl> Warteschlange;
+    private LinkedList<ITrack> Warteschlange;
 
     @Override
     public String getName() {
@@ -18,7 +18,7 @@ public class UserImpl implements IUser{
     }
 
     @Override
-    public LinkedList<TrackImpl> getQueue() {
+    public LinkedList<ITrack> getQueue() {
         return Warteschlange;
     }
 

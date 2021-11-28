@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="de.htw.bemydj.ui.mainView.HomeFragment"
+        android:name="de.htw.bemydj.ui.homeScreen.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 

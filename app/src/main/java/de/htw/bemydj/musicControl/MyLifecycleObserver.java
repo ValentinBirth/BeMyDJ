@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.DefaultLifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
 
-import de.htw.bemydj.ui.mainView.HomeFragment;
+import de.htw.bemydj.ui.homeScreen.HomeFragment;
 
 public class MyLifecycleObserver implements DefaultLifecycleObserver {
     private final ActivityResultRegistry musicFileResultRegistry;

@@ -6,7 +6,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import de.htw.bemydj.R;
-import de.htw.bemydj.ui.mainView.HomeFragment;
+import de.htw.bemydj.ui.homeScreen.HomeFragment;
 
 public class MyActivityResultCallback implements androidx.activity.result.ActivityResultCallback<Uri> {
     HomeFragment homeFragment;

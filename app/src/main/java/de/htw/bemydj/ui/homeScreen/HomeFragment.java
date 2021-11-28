@@ -1,4 +1,4 @@
-package de.htw.bemydj.ui.mainView;
+package de.htw.bemydj.ui.homeScreen;
 
 
 import android.media.AudioAttributes;
@@ -25,14 +25,8 @@ import java.util.concurrent.TimeUnit;
 import de.htw.bemydj.R;
 import de.htw.bemydj.databinding.FragmentHomeBinding;
 import de.htw.bemydj.musicControl.ChooseMusicFileListener;
-import de.htw.bemydj.musicControl.MediaPlayerFfListener;
-import de.htw.bemydj.musicControl.MediaPlayerOnCompletionListener;
 import de.htw.bemydj.musicControl.MediaPlayerOnErrorListener;
 import de.htw.bemydj.musicControl.MediaPlayerOnPreparedListener;
-import de.htw.bemydj.musicControl.MediaPlayerPauseListener;
-import de.htw.bemydj.musicControl.MediaPlayerPlayListener;
-import de.htw.bemydj.musicControl.MediaPlayerRewindListener;
-import de.htw.bemydj.musicControl.MediaPlayerSeekBarChangeListener;
 import de.htw.bemydj.musicControl.MyLifecycleObserver;
 
 public class HomeFragment extends Fragment {
@@ -61,6 +55,8 @@ public class HomeFragment extends Fragment {
         btPlay = v.findViewById(R.id.btnPlay);
         btPause = v.findViewById(R.id.btnPause);
         btFor = v.findViewById(R.id.btwFor);
+
+        //TODO implement IMusicControl
 
         btmusic.setOnClickListener(new ChooseMusicFileListener(this));
         lifecycleObserver = new MyLifecycleObserver(requireActivity().getActivityResultRegistry(), this);

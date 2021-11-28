@@ -4,7 +4,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import de.htw.bemydj.R;
-import de.htw.bemydj.ui.mainView.HomeFragment;
+import de.htw.bemydj.ui.homeScreen.HomeFragment;
 
 public class MediaPlayerSeekBarChangeListener implements SeekBar.OnSeekBarChangeListener {
     private final HomeFragment homeFragment;

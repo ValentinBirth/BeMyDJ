@@ -18,7 +18,7 @@ public interface ITrack {
     /** getter for user of a track
      * @return user
      */
-    UserImpl getUser();
+    IUser getUser();
 
     /**getter for filepath of track
      * @return String of filepath

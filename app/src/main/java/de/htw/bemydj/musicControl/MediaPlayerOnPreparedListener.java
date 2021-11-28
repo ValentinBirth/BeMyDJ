@@ -1,12 +1,11 @@
 package de.htw.bemydj.musicControl;
 
 import android.media.MediaPlayer;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 
 import de.htw.bemydj.R;
-import de.htw.bemydj.ui.mainView.HomeFragment;
+import de.htw.bemydj.ui.homeScreen.HomeFragment;
 
 public class MediaPlayerOnPreparedListener implements MediaPlayer.OnPreparedListener{
     private final HomeFragment homeFragment;

@@ -79,7 +79,7 @@ public class NetworkControlActivity extends AppCompatActivity {
         devices = new ArrayList<>();
         //TODO Peers cant find others
         //TODO Add Toolbar like in MainActivity to open the Nav Drawer
-        //TODO all Network related into own class in networkControl
+        //TODO all Network related into own class, see INetworkControl
     }
     @Override
     protected void onResume() {

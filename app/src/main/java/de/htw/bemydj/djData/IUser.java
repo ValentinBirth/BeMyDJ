@@ -20,7 +20,7 @@ public interface IUser {
     /** getter for queue
      * @return LinkedList
      */
-    LinkedList<TrackImpl> getQueue();
+    LinkedList<ITrack> getQueue();
 
     /** setter for username
      * @param name String of username

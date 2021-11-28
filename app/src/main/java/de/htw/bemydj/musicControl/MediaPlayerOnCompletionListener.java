@@ -4,7 +4,7 @@ import android.media.MediaPlayer;
 import android.view.View;
 
 import de.htw.bemydj.R;
-import de.htw.bemydj.ui.mainView.HomeFragment;
+import de.htw.bemydj.ui.homeScreen.HomeFragment;
 
 public class MediaPlayerOnCompletionListener implements MediaPlayer.OnCompletionListener{
     private final HomeFragment homeFragment;

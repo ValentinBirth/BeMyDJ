@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import de.htw.bemydj.R;
-import de.htw.bemydj.ui.mainView.HomeFragment;
+import de.htw.bemydj.ui.homeScreen.HomeFragment;
 
 public class MediaPlayerFfListener implements View.OnClickListener{
     private final HomeFragment homeFragment;

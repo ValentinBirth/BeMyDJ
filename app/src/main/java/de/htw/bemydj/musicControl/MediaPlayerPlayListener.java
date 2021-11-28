@@ -3,7 +3,7 @@ package de.htw.bemydj.musicControl;
 import android.view.View;
 
 import de.htw.bemydj.R;
-import de.htw.bemydj.ui.mainView.HomeFragment;
+import de.htw.bemydj.ui.homeScreen.HomeFragment;
 
 public class MediaPlayerPlayListener implements View.OnClickListener{
     private final HomeFragment homeFragment;
