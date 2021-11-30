@@ -19,10 +19,7 @@ public class MyActivityResultCallback implements androidx.activity.result.Activi
     public void onActivityResult(Uri result) {
         //TODO Testing Code
         TextView test = homeFragment.requireView().findViewById(R.id.textViewTest);
-        test.setText("");
-        Toast.makeText(homeFragment.requireContext(), result.getPath(),Toast.LENGTH_SHORT).show();
-        homeFragment.setMusicFileUriTest(result);
-        homeFragment.resetMediaPlayer();
+        test.setText(result.getPath());
         //TODO handle returned Uri
     }
 }

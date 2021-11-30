@@ -1,8 +1,9 @@
 package de.htw.bemydj.musicControl;
 
 import android.media.MediaPlayer;
-import android.net.Uri;
+import android.os.Handler;
 
+import java.io.IOException;
 import java.io.InputStream;
 
 /**
@@ -10,45 +11,53 @@ import java.io.InputStream;
  */
 public interface IMusicControl {
     /** tells the MediaPlayer to start playing
-     * @return true if successful, else false
      */
-    boolean play();
+    void play();
 
     /** tells MediaPlayer to pause playing
-     * @return true if successful, else false
      */
-    boolean pause();
-
-    /** tells MediaPlayer to resume playing
-     * @return true if successful, else false
-     */
-    boolean resume();
+    void pause();
 
     /** tells MediaPlayer to rewind given amount of time
      * @param milliseconds amount of time to rewind
      * @return true if successful, else false
      */
-    boolean rewind(int milliseconds);
+    String rewind(int milliseconds);
 
     /** tells MediaPlayer to fast forward given amout of time
      * @param milliseconds amount of time to fast forward
      * @return true if successful, else false
      */
-    boolean fastForward(int milliseconds);
+    String fastForward(int milliseconds);
 
     /** resets the MediaPlayer to a new input source
      * @param inputStream the input stream of music to be played
-     * @return true if successful, else false
      */
-    boolean resetPlayer(InputStream inputStream);
+    void resetPlayer(InputStream inputStream) throws IOException;
+
+    /**
+     * releases the MediaPlayer
+     */
+    void releasePlayer();
+
+    /** converts integer position in milliseconds to string minute:second format
+     * @param duration integer position in milliseconds
+     * @return string minute:second format
+     */
+    String convertFormat(int duration);
 
     /**
      * getter for MediaPlayer
      */
     MediaPlayer getMediaPlayer();
 
-    /** chooses a music file
-     * @return uri of chosen music file
+    /**
+     * getter for Handler
      */
-    Uri chooseMusicFile();
+    Handler getHandler();
+
+    /**
+     * getter for runnable
+     */
+    Runnable getRunnable();
 }

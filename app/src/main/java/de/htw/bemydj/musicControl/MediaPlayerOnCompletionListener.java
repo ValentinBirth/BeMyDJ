@@ -2,21 +2,27 @@ package de.htw.bemydj.musicControl;
 
 import android.media.MediaPlayer;
 import android.view.View;
+import android.widget.ImageView;
 
 import de.htw.bemydj.R;
 import de.htw.bemydj.ui.homeScreen.HomeFragment;
 
 public class MediaPlayerOnCompletionListener implements MediaPlayer.OnCompletionListener{
-    private final HomeFragment homeFragment;
+    private ImageView btnPause;
+    private ImageView btnPlay;
+    private MusicControlImpl musicPlayerControl;
 
-    public MediaPlayerOnCompletionListener(HomeFragment homeFragment) {
-        this.homeFragment = homeFragment;
+
+    public MediaPlayerOnCompletionListener(MusicControlImpl musicPlayerControl, ImageView btnPause, ImageView btnPlay) {
+        this.musicPlayerControl = musicPlayerControl;
+        this.btnPause = btnPause;
+        this.btnPlay = btnPlay;
     }
 
     @Override
     public void onCompletion(MediaPlayer mp) {
-        homeFragment.requireView().findViewById(R.id.btnPause).setVisibility(View.GONE);
-        homeFragment.requireView().findViewById(R.id.btnPlay).setVisibility(View.VISIBLE);
-        homeFragment.getMediaPlayer().seekTo(0);
+       btnPause.setVisibility(View.GONE);
+        btnPlay.setVisibility(View.VISIBLE);
+        musicPlayerControl.getMediaPlayer().seekTo(0);
     }
 }

@@ -1,22 +1,25 @@
 package de.htw.bemydj.musicControl;
 
 import android.view.View;
+import android.widget.ImageView;
 
 import de.htw.bemydj.R;
-import de.htw.bemydj.ui.homeScreen.HomeFragment;
 
 public class MediaPlayerPauseListener implements View.OnClickListener {
-    private final HomeFragment homeFragment;
+    private MusicControlImpl musicPlayerControl;
+    private ImageView btnPlay;
 
-    public MediaPlayerPauseListener(HomeFragment homeFragment) {
-        this.homeFragment = homeFragment;
+    public MediaPlayerPauseListener(MusicControlImpl musicPlayerControl, ImageView btPlay) {
+        this.musicPlayerControl = musicPlayerControl;
+        this.btnPlay = btPlay;
     }
 
     @Override
     public void onClick(View v) {
-        v.findViewById(R.id.btnPause).setVisibility(View.GONE);
-        v.findViewById(R.id.btnPlay).setVisibility(View.VISIBLE);
-        homeFragment.getMediaPlayer().pause();
-        homeFragment.getHandler().removeCallbacks(homeFragment.getRunnable());
+        ImageView btnPause = v.findViewById(R.id.btnPause);
+        btnPause.setVisibility(View.GONE);
+        btnPlay.setVisibility(View.VISIBLE);
+        musicPlayerControl.pause();
+        musicPlayerControl.getHandler().removeCallbacks(musicPlayerControl.getRunnable());
     }
 }
