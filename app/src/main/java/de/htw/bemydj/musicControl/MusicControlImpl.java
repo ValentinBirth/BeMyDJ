@@ -5,6 +5,7 @@ import android.media.MediaPlayer;
 import android.os.Handler;
 import android.widget.SeekBar;
 
+import java.io.FileDescriptor;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Locale;
@@ -15,20 +16,16 @@ import de.htw.bemydj.ui.homeScreen.HomeFragment;
 
 public class MusicControlImpl implements IMusicControl{
     private MediaPlayer mediaPlayer;
-    private HomeFragment homeFragment;
-    private Handler handler = new Handler();
-    private  Runnable musicPlayerThread;
-
-    //TODO Medial Player wont go in prepare state
+    private final Handler handler = new Handler();
+    private final Runnable musicPlayerThread;
 
     public MusicControlImpl(HomeFragment homeFragment){
-        this.homeFragment = homeFragment;
         mediaPlayer = new MediaPlayer();
         mediaPlayer.setAudioAttributes(new AudioAttributes.Builder()
                 .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
                 .setUsage(AudioAttributes.USAGE_MEDIA)
                 .build());
-        mediaPlayer.setOnErrorListener(new MediaPlayerOnErrorListener(homeFragment));
+        mediaPlayer.setOnErrorListener(new MediaPlayerOnErrorListener(this));
         mediaPlayer.setOnPreparedListener(new MediaPlayerOnPreparedListener(homeFragment, this));
 
         musicPlayerThread = new Runnable() {
@@ -77,9 +74,9 @@ public class MusicControlImpl implements IMusicControl{
     }
 
     @Override
-    public void resetPlayer(InputStream inputStream) throws IOException {
+    public void resetPlayer(FileDescriptor fileDescriptor) throws IOException {
             mediaPlayer.reset();
-            mediaPlayer.setDataSource(inputStream.toString()); //TODO DataSource wrong
+            mediaPlayer.setDataSource(fileDescriptor);
             mediaPlayer.prepareAsync();
     }
 

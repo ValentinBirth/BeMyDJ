@@ -3,6 +3,7 @@ package de.htw.bemydj.musicControl;
 import android.media.MediaPlayer;
 import android.os.Handler;
 
+import java.io.FileDescriptor;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -31,9 +32,9 @@ public interface IMusicControl {
     String fastForward(int milliseconds);
 
     /** resets the MediaPlayer to a new input source
-     * @param inputStream the input stream of music to be played
+     * @param fileDescriptor the file descriptor of music to be played
      */
-    void resetPlayer(InputStream inputStream) throws IOException;
+    void resetPlayer(FileDescriptor fileDescriptor) throws IOException;
 
     /**
      * releases the MediaPlayer

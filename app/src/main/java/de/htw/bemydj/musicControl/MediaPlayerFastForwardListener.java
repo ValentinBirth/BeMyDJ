@@ -8,10 +8,10 @@ import de.htw.bemydj.ui.homeScreen.HomeFragment;
 
 public class MediaPlayerFastForwardListener implements View.OnClickListener{
     private TextView playerPosition;
-    private MusicControlImpl musicPlayerControl;
+    private IMusicControl musicPlayerControl;
 
 
-    public MediaPlayerFastForwardListener(TextView playerPosition, MusicControlImpl musicPlayerControl) {
+    public MediaPlayerFastForwardListener(TextView playerPosition, IMusicControl musicPlayerControl) {
         this.musicPlayerControl = musicPlayerControl;
         this.playerPosition = playerPosition;
     }

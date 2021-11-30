@@ -10,10 +10,10 @@ import de.htw.bemydj.ui.homeScreen.HomeFragment;
 public class MediaPlayerOnCompletionListener implements MediaPlayer.OnCompletionListener{
     private ImageView btnPause;
     private ImageView btnPlay;
-    private MusicControlImpl musicPlayerControl;
+    private IMusicControl musicPlayerControl;
 
 
-    public MediaPlayerOnCompletionListener(MusicControlImpl musicPlayerControl, ImageView btnPause, ImageView btnPlay) {
+    public MediaPlayerOnCompletionListener(IMusicControl musicPlayerControl, ImageView btnPause, ImageView btnPlay) {
         this.musicPlayerControl = musicPlayerControl;
         this.btnPause = btnPause;
         this.btnPlay = btnPlay;
@@ -21,7 +21,7 @@ public class MediaPlayerOnCompletionListener implements MediaPlayer.OnCompletion
 
     @Override
     public void onCompletion(MediaPlayer mp) {
-       btnPause.setVisibility(View.GONE);
+        btnPause.setVisibility(View.GONE);
         btnPlay.setVisibility(View.VISIBLE);
         musicPlayerControl.getMediaPlayer().seekTo(0);
     }

@@ -4,15 +4,16 @@ import android.media.MediaPlayer;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import de.htw.bemydj.R;
 import de.htw.bemydj.ui.homeScreen.HomeFragment;
 
 public class MediaPlayerOnPreparedListener implements MediaPlayer.OnPreparedListener{
     private final HomeFragment homeFragment;
-    private final MusicControlImpl musicPlayerControl;
+    private final IMusicControl musicPlayerControl;
 
-    public MediaPlayerOnPreparedListener(HomeFragment homeFragment, MusicControlImpl musicControl) {
+    public MediaPlayerOnPreparedListener(HomeFragment homeFragment, IMusicControl musicControl) {
         this.homeFragment = homeFragment;
         this.musicPlayerControl = musicControl;
     }
@@ -31,6 +32,8 @@ public class MediaPlayerOnPreparedListener implements MediaPlayer.OnPreparedList
         btFor.setOnClickListener(new MediaPlayerFastForwardListener(playerPosition,musicPlayerControl));
         btRew.setOnClickListener(new MediaPlayerRewindListener(musicPlayerControl,playerPosition));
         seekBar.setOnSeekBarChangeListener(new MediaPlayerSeekBarChangeListener(musicPlayerControl,playerPosition));
+
+        Toast.makeText(homeFragment.getContext(), "Player Ready", Toast.LENGTH_SHORT).show();
 
         int duration = mp.getDuration();
         String sduration = musicPlayerControl.convertFormat(duration);

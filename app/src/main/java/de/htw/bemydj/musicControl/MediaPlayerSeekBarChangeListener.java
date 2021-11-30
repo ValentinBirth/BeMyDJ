@@ -4,11 +4,11 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 public class MediaPlayerSeekBarChangeListener implements SeekBar.OnSeekBarChangeListener {
-    private final MusicControlImpl musicPlayerControl;
+    private final IMusicControl musicPlayerControl;
     private final TextView playerPosition;
 
 
-    public MediaPlayerSeekBarChangeListener(MusicControlImpl musicPlayerControl, TextView playerPosition) {
+    public MediaPlayerSeekBarChangeListener(IMusicControl musicPlayerControl, TextView playerPosition) {
         this.musicPlayerControl = musicPlayerControl;
         this.playerPosition = playerPosition;
     }

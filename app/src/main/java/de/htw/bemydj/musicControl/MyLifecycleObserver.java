@@ -12,7 +12,7 @@ import de.htw.bemydj.ui.homeScreen.HomeFragment;
 public class MyLifecycleObserver implements DefaultLifecycleObserver {
     private final ActivityResultRegistry musicFileResultRegistry;
     private ActivityResultLauncher<String> musicFileResultLauncher;
-    private HomeFragment homeFragment;
+    private final HomeFragment homeFragment;
 
 
     public MyLifecycleObserver(@NonNull ActivityResultRegistry musicFileResultRegistry, HomeFragment homeFragment) {

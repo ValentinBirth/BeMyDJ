@@ -4,10 +4,10 @@ import android.view.View;
 import android.widget.TextView;
 
 public class MediaPlayerRewindListener implements View.OnClickListener{
-    private final MusicControlImpl musicPlayerControl;
+    private final IMusicControl musicPlayerControl;
     private final TextView playerPosition;
 
-    public MediaPlayerRewindListener(MusicControlImpl musicPlayerControl, TextView playerPosition) {
+    public MediaPlayerRewindListener(IMusicControl musicPlayerControl, TextView playerPosition) {
         this.musicPlayerControl = musicPlayerControl;
         this.playerPosition = playerPosition;
     }

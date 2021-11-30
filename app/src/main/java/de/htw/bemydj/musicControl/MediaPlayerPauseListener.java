@@ -6,10 +6,10 @@ import android.widget.ImageView;
 import de.htw.bemydj.R;
 
 public class MediaPlayerPauseListener implements View.OnClickListener {
-    private MusicControlImpl musicPlayerControl;
+    private IMusicControl musicPlayerControl;
     private ImageView btnPlay;
 
-    public MediaPlayerPauseListener(MusicControlImpl musicPlayerControl, ImageView btPlay) {
+    public MediaPlayerPauseListener(IMusicControl musicPlayerControl, ImageView btPlay) {
         this.musicPlayerControl = musicPlayerControl;
         this.btnPlay = btPlay;
     }

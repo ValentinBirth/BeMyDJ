@@ -14,12 +14,13 @@ import androidx.fragment.app.Fragment;
 import de.htw.bemydj.R;
 import de.htw.bemydj.musicControl.ChooseMusicFileListener;
 
+import de.htw.bemydj.musicControl.IMusicControl;
 import de.htw.bemydj.musicControl.MusicControlImpl;
 import de.htw.bemydj.musicControl.MyLifecycleObserver;
 
 public class HomeFragment extends Fragment {
 
-    private MusicControlImpl mediaPlayerController;
+    private IMusicControl musicPlayerController;
     private MyLifecycleObserver lifecycleObserver;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -30,7 +31,7 @@ public class HomeFragment extends Fragment {
         btmusic.setOnClickListener(new ChooseMusicFileListener(this));
         lifecycleObserver = new MyLifecycleObserver(requireActivity().getActivityResultRegistry(), this);
         getLifecycle().addObserver(lifecycleObserver);
-        mediaPlayerController = new MusicControlImpl(this);
+        musicPlayerController = new MusicControlImpl(this);
 
         return v;
     }
@@ -38,17 +39,20 @@ public class HomeFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        mediaPlayerController.releasePlayer();
+        musicPlayerController.releasePlayer();
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        mediaPlayerController.releasePlayer();
+        musicPlayerController.releasePlayer();
     }
 
     public MyLifecycleObserver getLifecycleObserver() {
         return lifecycleObserver;
     }
 
+    public IMusicControl getMusicPlayerController() {
+        return musicPlayerController;
+    }
 }
