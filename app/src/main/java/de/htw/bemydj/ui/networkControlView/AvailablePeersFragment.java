@@ -32,16 +32,13 @@ public class AvailablePeersFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         availablePeerList= new ArrayList<>();
         //TODO Peers cant find others
-        if(networkControlActivity.getDeviceNames().isEmpty()){
+        if(networkControlActivity.getNetworkControlImpl().getPeerList().isEmpty()){
             availablePeerList.add(new AvailablePeer("test","test"));
         }
-        for (String name:networkControlActivity.getDeviceNames()) {
-            availablePeerList.add( new AvailablePeer(name,"test"));
+        for (String name:networkControlActivity.getNetworkControlImpl().getPeerNameList()) {
+            availablePeerList.add( new AvailablePeer(name,"dummy"));
 
         }
-        availablePeerList.add(new AvailablePeer("test1","test1"));
-        availablePeerList.add(new AvailablePeer("test2","test2"));
-        availablePeerList.add(new AvailablePeer("test3","test3"));
 
         v = inflater.inflate(R.layout.fragment_available_peers,container,false);
         availablePeersRecyclerView = v.findViewById(R.id.availablePeersRecyclerView);

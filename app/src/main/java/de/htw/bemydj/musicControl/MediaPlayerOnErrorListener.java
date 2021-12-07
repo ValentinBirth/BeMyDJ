@@ -3,11 +3,6 @@ package de.htw.bemydj.musicControl;
 import android.media.MediaPlayer;
 import android.util.Log;
 
-import java.io.InputStream;
-
-import de.htw.bemydj.networkControl.WifiP2pBoradcastReciever;
-import de.htw.bemydj.ui.homeScreen.HomeFragment;
-
 public class MediaPlayerOnErrorListener implements MediaPlayer.OnErrorListener{
     private static final String TAG = MusicControlImpl.class.getName();
     private final IMusicControl musicPlayerControl;

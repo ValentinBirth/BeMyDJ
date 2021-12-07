@@ -18,6 +18,7 @@
     <string name="network_control_discover_peers">Search for Listeners</string>
     <string name="discovery_started">Discovery Started</string>
     <string name="discovery_stopped">Discovery Stopped</string>
+    <string name="discovery_initiated">Discovery Initiated</string>
     <string name="discovery_failed">Discovery Failed</string>
     <string name="filePicker">Choose File</string>
 </resources>

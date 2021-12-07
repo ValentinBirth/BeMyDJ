@@ -4,10 +4,10 @@ import android.net.wifi.p2p.WifiP2pManager;
 
 import de.htw.bemydj.ui.networkControlView.NetworkControlActivity;
 
-public class ConnectListener implements WifiP2pManager.ActionListener{
+public class MyConnectListener implements WifiP2pManager.ActionListener{
     NetworkControlActivity activity;
 
-    public ConnectListener(NetworkControlActivity activity){
+    public MyConnectListener(NetworkControlActivity activity){
         this.activity=activity;
     }
     @Override

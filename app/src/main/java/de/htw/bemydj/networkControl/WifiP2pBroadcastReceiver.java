@@ -1,6 +1,7 @@
 package de.htw.bemydj.networkControl;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -12,21 +13,20 @@ import androidx.core.app.ActivityCompat;
 
 import de.htw.bemydj.ui.networkControlView.NetworkControlActivity;
 
-public class WifiP2pBoradcastReciever extends BroadcastReceiver {
-    private static final String TAG = WifiP2pBoradcastReciever.class.getName();
+public class WifiP2pBroadcastReceiver extends BroadcastReceiver {
+    private static final String TAG = WifiP2pBroadcastReceiver.class.getName();
     private WifiP2pManager manager;
     private WifiP2pManager.Channel channel;
-    private NetworkControlActivity activity;
-    private PeerListListener peerListListener;
+    private NetworkControlActivity ncActivity;
+    private MyPeerListListener myPeerListListener;
 
-    public WifiP2pBoradcastReciever(WifiP2pManager manager, WifiP2pManager.Channel channel, NetworkControlActivity activity) {
+    public WifiP2pBroadcastReceiver(WifiP2pManager manager, WifiP2pManager.Channel channel, NetworkControlActivity ncActivity) {
         super();
         this.manager = manager;
         this.channel = channel;
-        this.activity = activity;
-        peerListListener = new PeerListListener(activity);
+        this.ncActivity = ncActivity;
+        myPeerListListener = new MyPeerListListener(ncActivity.getNetworkControlImpl());
     }
-
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -42,10 +42,11 @@ public class WifiP2pBoradcastReciever extends BroadcastReceiver {
             }
         } else if (WifiP2pManager.WIFI_P2P_PEERS_CHANGED_ACTION.equals(action)) {
             if (manager != null) {
-                if (ActivityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                    ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
-                    manager.requestPeers(channel, peerListListener);
+                if (ActivityCompat.checkSelfPermission(ncActivity, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(ncActivity, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
                 }
+                manager.requestPeers(channel, myPeerListListener);
+                Log.e(TAG,"WIFI_P2P_PEERS_CHANGED_ACTION");
             }
         } else if (WifiP2pManager.WIFI_P2P_CONNECTION_CHANGED_ACTION.equals(action)) {
             //TODO Respond to new connection or disconnections
