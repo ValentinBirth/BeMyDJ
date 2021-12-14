@@ -16,7 +16,9 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.htw.bemydj.djData.AvailablePeer;
 import de.htw.bemydj.ui.networkControlView.NetworkControlActivity;
+import de.htw.bemydj.ui.networkControlView.RecyclerViewAdapter;
 
 public class NetworkControlImpl implements INetworkControl {
     private WifiP2pManager wifiP2pManager;
@@ -27,14 +29,15 @@ public class NetworkControlImpl implements INetworkControl {
     private MyStopDiscoverPeersListener myStopDiscoverPeersListener;
     private MyConnectListener myConnectListener;
     private List<WifiP2pDevice> peers;
-    private List<String> peerNames;
     private NetworkControlActivity ncActivity;
     private MyChannelListener myChannelListener;
     private MyPeerListListener myPeerListListener;
+    private List<AvailablePeer> availablePeerList;
+    private RecyclerViewAdapter recyclerViewAdapter;
 
     public NetworkControlImpl(NetworkControlActivity ncActivity) {
         this.peers = new ArrayList<>();
-        this.peerNames = new ArrayList<>();
+        this.availablePeerList = new ArrayList<>();
         this.ncActivity = ncActivity;
 
         this.myDiscoverPeersListener = new MyDiscoverPeersListener(ncActivity);
@@ -59,7 +62,6 @@ public class NetworkControlImpl implements INetworkControl {
         if (ActivityCompat.checkSelfPermission(ncActivity, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(ncActivity, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
         }
-        //TODO Discovery fails because framework is busy and unable to service the request (see log)
         wifiP2pManager.discoverPeers(channel, myDiscoverPeersListener);
     }
 
@@ -68,7 +70,6 @@ public class NetworkControlImpl implements INetworkControl {
         if (ActivityCompat.checkSelfPermission(ncActivity, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(ncActivity, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
         }
-        //TODO Discovery fails because framework is busy and unable to service the request (see log)
         wifiP2pManager.stopPeerDiscovery(channel,myStopDiscoverPeersListener);
     }
 
@@ -118,8 +119,8 @@ public class NetworkControlImpl implements INetworkControl {
     }
 
     @Override
-    public List<String> getPeerNameList() {
-        return peerNames;
+    public List<AvailablePeer> getAvailablePeerList() {
+        return availablePeerList;
     }
 
     @Override

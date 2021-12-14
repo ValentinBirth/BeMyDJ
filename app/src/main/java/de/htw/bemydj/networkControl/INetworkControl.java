@@ -8,6 +8,9 @@ import android.net.wifi.p2p.WifiP2pManager;
 import java.net.Socket;
 import java.util.List;
 
+import de.htw.bemydj.djData.AvailablePeer;
+import de.htw.bemydj.ui.networkControlView.RecyclerViewAdapter;
+
 /**
  * interface for NetworkControl
  */
@@ -66,10 +69,10 @@ public interface INetworkControl {
      */
     List<WifiP2pDevice> getPeerList();
 
-    /** getter for an list of peer names
-     * @return list of peer names
+    /** getter for an list of peer for recycler View
+     * @return list with peers
      */
-    List<String> getPeerNameList();
+    List<AvailablePeer> getAvailablePeerList();
 
     /** getter for a "client" socket
      * @return socket for receiving clients

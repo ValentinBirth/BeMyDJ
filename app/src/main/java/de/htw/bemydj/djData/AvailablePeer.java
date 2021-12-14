@@ -1,5 +1,7 @@
 package de.htw.bemydj.djData;
 
+import androidx.annotation.NonNull;
+
 public class AvailablePeer {
 
     private String Name;
@@ -25,5 +27,11 @@ public class AvailablePeer {
 
     public void setAdress(String adress) {
         Adress = adress;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return "[Peername: "+getName()+", Peeradress: "+getAdress()+"]";
     }
 }

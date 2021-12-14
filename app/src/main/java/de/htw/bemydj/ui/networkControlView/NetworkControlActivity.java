@@ -45,14 +45,12 @@ public class NetworkControlActivity extends AppCompatActivity {
         viewPager.setAdapter(sectionsPagerAdapter);
         tabLayout = binding.tabs;
         tabLayout.setupWithViewPager(viewPager);
-        //TODO Peers cant find others
         //TODO Add Toolbar like in MainActivity to open the Nav Drawer
     }
     @Override
     protected void onResume() {
         super.onResume();
         registerReceiver(networkControlImpl.getBroadCastReceiver(), networkControlImpl.getIntentFilter());
-        networkControlImpl.startPeerDiscovery();
     }
 
     @Override

@@ -29,15 +29,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
 
         View v;
         v = LayoutInflater.from(mContext).inflate(R.layout.item_availablepeer,parent,false);
-        RecyclerViewHolderAvailablePeers viewHolder = new RecyclerViewHolderAvailablePeers(v);
-        return viewHolder;
+        return new RecyclerViewHolderAvailablePeers(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewHolderAvailablePeers holder, int position) {
 
         holder.getTv_Name().setText(availablePeerList.get(position).getName());
-        holder.getTv_adress().setText(availablePeerList.get(position).getName());
+        holder.getTv_adress().setText(availablePeerList.get(position).getAdress());
 
     }
 
