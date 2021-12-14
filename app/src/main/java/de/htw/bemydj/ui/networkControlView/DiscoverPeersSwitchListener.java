@@ -25,6 +25,7 @@ public class DiscoverPeersSwitchListener implements CompoundButton.OnCheckedChan
         }else{
             connectionStatus.setText(R.string.discovery_stopped);
             Log.e(TAG,"Discovery stopped");
+            networkControlActivity.getNetworkControlImpl().stopPeerDiscovery();
         }
     }
 }

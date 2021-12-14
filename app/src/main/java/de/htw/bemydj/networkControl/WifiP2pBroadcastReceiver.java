@@ -20,12 +20,12 @@ public class WifiP2pBroadcastReceiver extends BroadcastReceiver {
     private NetworkControlActivity ncActivity;
     private MyPeerListListener myPeerListListener;
 
-    public WifiP2pBroadcastReceiver(WifiP2pManager manager, WifiP2pManager.Channel channel, NetworkControlActivity ncActivity) {
+    public WifiP2pBroadcastReceiver(WifiP2pManager manager, WifiP2pManager.Channel channel, NetworkControlActivity ncActivity, MyPeerListListener myPeerListListener) {
         super();
         this.manager = manager;
         this.channel = channel;
         this.ncActivity = ncActivity;
-        myPeerListListener = new MyPeerListListener(ncActivity.getNetworkControlImpl());
+        this.myPeerListListener = myPeerListListener;
     }
 
     @Override
@@ -34,10 +34,8 @@ public class WifiP2pBroadcastReceiver extends BroadcastReceiver {
         if (WifiP2pManager.WIFI_P2P_STATE_CHANGED_ACTION.equals(action)) {
             int state = intent.getIntExtra(WifiP2pManager.EXTRA_WIFI_STATE, -1);
             if (state == WifiP2pManager.WIFI_P2P_STATE_ENABLED) {
-                // Wi-Fi P2P is enabled
                 Log.e(TAG, "WIFI_P2P_STATE_ENABLED");
             } else {
-                // Wi-Fi P2P is not enabled
                 Log.e(TAG, "WIFI_P2P_STATE_NOT_ENABLED");
             }
         } else if (WifiP2pManager.WIFI_P2P_PEERS_CHANGED_ACTION.equals(action)) {

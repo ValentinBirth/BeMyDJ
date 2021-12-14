@@ -7,25 +7,25 @@ import android.widget.TextView;
 import de.htw.bemydj.R;
 import de.htw.bemydj.ui.networkControlView.NetworkControlActivity;
 
-public class DiscoverPeersListener implements WifiP2pManager.ActionListener{
-    private static final String TAG = DiscoverPeersListener.class.toString();
+public class MyStopDiscoverPeersListener implements WifiP2pManager.ActionListener {
+    private static final String TAG = MyDiscoverPeersListener.class.toString();
     NetworkControlActivity activity;
 
-    public DiscoverPeersListener(NetworkControlActivity activity){
+    public MyStopDiscoverPeersListener(NetworkControlActivity activity){
         this.activity=activity;
     }
 
     @Override
     public void onSuccess() {
         TextView connectionStatus = activity.findViewById(R.id.connectionStatus);
-        connectionStatus.setText(R.string.discovery_started);
-        Log.e(TAG,"Discovery started");
+        connectionStatus.setText(R.string.discovery_stopped);
+        Log.e(TAG,"Discovery stopped");
     }
 
     @Override
     public void onFailure(int reason) {
         TextView connectionStatus = activity.findViewById(R.id.connectionStatus);
         connectionStatus.setText(R.string.discovery_failed);
-        Log.e(TAG,"Discovery failed with Code: "+reason);
+        Log.e(TAG,"Discovery stopped failed with Code: "+reason);
     }
 }

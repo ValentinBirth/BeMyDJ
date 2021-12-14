@@ -17,6 +17,10 @@ public interface INetworkControl {
      */
     void startPeerDiscovery();
 
+    /** stops wifi p2p discovery
+     */
+    void stopPeerDiscovery();
+
     /** getter for WifiP2pManager.Channel
      * @return WifiP2pManager.Channel
      */
@@ -40,12 +44,22 @@ public interface INetworkControl {
     /** getter for discover peers listener
      * @return DiscoverPeersListener
      */
-    DiscoverPeersListener getDiscoverPeersListener();
+    MyDiscoverPeersListener getDiscoverPeersListener();
 
     /** getter for an connection listener
      * @return ConnectListener
      */
     MyConnectListener getConnectListener();
+
+    /** getter for an peer list listener
+     * @return PeerListListener
+     */
+    MyPeerListListener getPeerListListener();
+
+    /** getter for an channel listener
+     * @return ChannelListener
+     */
+    MyChannelListener getChannelListener();
 
     /** getter for an list of peers
      * @return list with peers

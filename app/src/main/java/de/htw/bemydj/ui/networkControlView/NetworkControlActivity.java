@@ -32,6 +32,7 @@ public class NetworkControlActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        networkControlImpl = new NetworkControlImpl(this);
 
         binding = ActivityNetworkControlBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -44,8 +45,6 @@ public class NetworkControlActivity extends AppCompatActivity {
         viewPager.setAdapter(sectionsPagerAdapter);
         tabLayout = binding.tabs;
         tabLayout.setupWithViewPager(viewPager);
-
-        networkControlImpl = new NetworkControlImpl(this);
         //TODO Peers cant find others
         //TODO Add Toolbar like in MainActivity to open the Nav Drawer
     }
@@ -53,12 +52,14 @@ public class NetworkControlActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         registerReceiver(networkControlImpl.getBroadCastReceiver(), networkControlImpl.getIntentFilter());
+        networkControlImpl.startPeerDiscovery();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         unregisterReceiver(networkControlImpl.getBroadCastReceiver());
+        networkControlImpl.stopPeerDiscovery();
     }
 
     @Override
