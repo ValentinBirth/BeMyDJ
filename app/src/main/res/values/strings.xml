@@ -22,4 +22,5 @@
     <string name="discovery_failed">Discovery failed</string>
     <string name="discovery_stop_failed">Discovery stop failed</string>
     <string name="filePicker">Choose file</string>
+    <string name="dialog_connect">Connect</string>
 </resources>

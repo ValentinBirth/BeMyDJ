@@ -1,9 +1,13 @@
 package de.htw.bemydj.ui.networkControlView;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,12 +19,13 @@ import de.htw.bemydj.djData.AvailablePeer;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolderAvailablePeers> {
 
-    Context mContext;
-    List<AvailablePeer> availablePeerList;
+    private Context mContext;
+    private List<AvailablePeer> availablePeerList;
+    private Dialog connectDialog;
 
     public RecyclerViewAdapter(Context mContext, List<AvailablePeer> availablePeerList){
-        this.mContext=mContext;
-        this.availablePeerList=availablePeerList;
+        this.mContext = mContext;
+        this.availablePeerList = availablePeerList;
     }
 
     @NonNull
@@ -29,7 +34,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
 
         View v;
         v = LayoutInflater.from(mContext).inflate(R.layout.item_availablepeer,parent,false);
-        return new RecyclerViewHolderAvailablePeers(v);
+
+        RecyclerViewHolderAvailablePeers recyclerViewHolderAvailablePeers = new RecyclerViewHolderAvailablePeers(v);
+
+        connectDialog = new Dialog(mContext);
+        connectDialog.setContentView(R.layout.dialog_connect);
+
+        recyclerViewHolderAvailablePeers.getItem_availablePeer().setOnClickListener(new OnClickAvailablePeer(connectDialog, availablePeerList, recyclerViewHolderAvailablePeers));
+
+        return recyclerViewHolderAvailablePeers;
     }
 
     @Override
