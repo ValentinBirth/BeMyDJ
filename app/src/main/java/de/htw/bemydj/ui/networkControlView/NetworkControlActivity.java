@@ -40,7 +40,7 @@ public class NetworkControlActivity extends AppCompatActivity {
         sectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         sectionsPagerAdapter.addFragment(new NetworkControlFragment(this), "Network Control");
         sectionsPagerAdapter.addFragment(new AvailablePeersFragment(this), "Available Listeners");
-        sectionsPagerAdapter.addFragment(new GroupFragment(), "Group");
+        sectionsPagerAdapter.addFragment(new GroupFragment(this), "Group");
         viewPager = binding.viewPager;
         viewPager.setAdapter(sectionsPagerAdapter);
         tabLayout = binding.tabs;
@@ -69,16 +69,6 @@ public class NetworkControlActivity extends AppCompatActivity {
             } else {
                 Toast.makeText(NetworkControlActivity.this, "Permission Denied", Toast.LENGTH_SHORT).show();
             }
-        }
-    }
-
-    public void connect(final WifiP2pDevice device) {
-        WifiP2pConfig config = new WifiP2pConfig();
-        config.deviceAddress = device.deviceAddress;
-        config.wps.setup = WpsInfo.PBC;
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(NetworkControlActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
-            networkControlImpl.getWifiP2pManager().connect(networkControlImpl.getChannel(), config, networkControlImpl.getConnectListener());
         }
     }
 

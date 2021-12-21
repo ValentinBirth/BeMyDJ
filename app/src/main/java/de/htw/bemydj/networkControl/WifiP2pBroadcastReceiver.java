@@ -6,6 +6,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.NetworkInfo;
 import android.net.wifi.p2p.WifiP2pManager;
 import android.util.Log;
 
@@ -15,17 +16,19 @@ import de.htw.bemydj.ui.networkControlView.NetworkControlActivity;
 
 public class WifiP2pBroadcastReceiver extends BroadcastReceiver {
     private static final String TAG = WifiP2pBroadcastReceiver.class.getName();
+    private final MyGroupInfoListener myGroupInfoListener;
     private WifiP2pManager manager;
     private WifiP2pManager.Channel channel;
     private NetworkControlActivity ncActivity;
     private MyPeerListListener myPeerListListener;
 
-    public WifiP2pBroadcastReceiver(WifiP2pManager manager, WifiP2pManager.Channel channel, NetworkControlActivity ncActivity, MyPeerListListener myPeerListListener) {
+    public WifiP2pBroadcastReceiver(WifiP2pManager manager, WifiP2pManager.Channel channel, NetworkControlActivity ncActivity, MyPeerListListener myPeerListListener, MyGroupInfoListener myGroupInfoListener) {
         super();
         this.manager = manager;
         this.channel = channel;
         this.ncActivity = ncActivity;
         this.myPeerListListener = myPeerListListener;
+        this.myGroupInfoListener = myGroupInfoListener;
     }
 
     @Override
@@ -47,7 +50,16 @@ public class WifiP2pBroadcastReceiver extends BroadcastReceiver {
                 Log.e(TAG,"WIFI_P2P_PEERS_CHANGED_ACTION");
             }
         } else if (WifiP2pManager.WIFI_P2P_CONNECTION_CHANGED_ACTION.equals(action)) {
-            //TODO Respond to new connection or disconnections
+            if (manager == null) {
+                return;
+            }
+            NetworkInfo networkInfo = intent.getParcelableExtra(WifiP2pManager.EXTRA_NETWORK_INFO);
+            if (networkInfo.isConnected()) {
+                manager.requestConnectionInfo(channel, new MyConnectionInfoListener());
+                manager.requestGroupInfo(channel,myGroupInfoListener);
+            }else {
+                Log.e(TAG,"Not connected");
+            }
         }
     }
 }

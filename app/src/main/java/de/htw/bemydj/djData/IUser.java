@@ -12,10 +12,10 @@ public interface IUser {
      */
     String getName();
 
-    /** getter for id of user
-     * @return int
+    /** getter for device adress
+     * @return device adress
      */
-    int getID();
+    String getAdress();
 
     /** getter for queue
      * @return LinkedList

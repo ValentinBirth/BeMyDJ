@@ -5,30 +5,28 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.util.List;
-
 import de.htw.bemydj.R;
-import de.htw.bemydj.djData.AvailablePeer;
+import de.htw.bemydj.networkControl.NetworkControlImpl;
 
 public class OnClickAvailablePeer implements View.OnClickListener {
-    private List<AvailablePeer> availablePeerList;
-    private RecyclerViewHolderAvailablePeers recyclerViewHolderAvailablePeers;
+    private final NetworkControlImpl networkControl;
+    private RecyclerViewHolderPeers recyclerViewHolderPeers;
     private Dialog connectDialog;
 
-    public OnClickAvailablePeer(Dialog connectDialog, List<AvailablePeer> availablePeerList, RecyclerViewHolderAvailablePeers recyclerViewHolderAvailablePeers) {
+    public OnClickAvailablePeer(Dialog connectDialog, NetworkControlImpl networkControl, RecyclerViewHolderPeers recyclerViewHolderPeers) {
         this.connectDialog = connectDialog;
-        this.availablePeerList = availablePeerList;
-        this.recyclerViewHolderAvailablePeers = recyclerViewHolderAvailablePeers;
+        this.networkControl = networkControl;
+        this.recyclerViewHolderPeers = recyclerViewHolderPeers;
     }
 
     @Override
     public void onClick(View v) {
-        TextView peerName = (TextView) connectDialog.findViewById(R.id.dialog_name);
-        TextView peerAdress = (TextView) connectDialog.findViewById(R.id.dialog_adress);
-        Button connect_btn = (Button) connectDialog.findViewById(R.id.dialog_connect_btn);
-        connect_btn.setOnClickListener(new OnClickConnectWithPeerListener());
-        peerName.setText(availablePeerList.get(recyclerViewHolderAvailablePeers.getBindingAdapterPosition()).getName());
-        peerAdress.setText(availablePeerList.get(recyclerViewHolderAvailablePeers.getBindingAdapterPosition()).getAdress());
+        TextView peerName = connectDialog.findViewById(R.id.dialog_name);
+        TextView peerAdress = connectDialog.findViewById(R.id.dialog_adress);
+        Button connect_btn = connectDialog.findViewById(R.id.dialog_connect_btn);
+        peerName.setText(networkControl.getAvailablePeerList().get(recyclerViewHolderPeers.getBindingAdapterPosition()).getName());
+        peerAdress.setText(networkControl.getAvailablePeerList().get(recyclerViewHolderPeers.getBindingAdapterPosition()).getAdress());
+        connect_btn.setOnClickListener(new OnClickConnectWithPeerListener(networkControl,networkControl.getAvailablePeerList().get(recyclerViewHolderPeers.getBindingAdapterPosition()).getAdress()));
         connectDialog.show();
     }
 }

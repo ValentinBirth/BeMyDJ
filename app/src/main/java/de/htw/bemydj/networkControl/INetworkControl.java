@@ -8,8 +8,7 @@ import android.net.wifi.p2p.WifiP2pManager;
 import java.net.Socket;
 import java.util.List;
 
-import de.htw.bemydj.djData.AvailablePeer;
-import de.htw.bemydj.ui.networkControlView.RecyclerViewAdapter;
+import de.htw.bemydj.djData.UserImpl;
 
 /**
  * interface for NetworkControl
@@ -23,6 +22,11 @@ public interface INetworkControl {
     /** stops wifi p2p discovery
      */
     void stopPeerDiscovery();
+
+    /** connect to given device
+     * @param deviceAddress address of the device
+     */
+    void connect (String deviceAddress);
 
     /** getter for WifiP2pManager.Channel
      * @return WifiP2pManager.Channel
@@ -64,6 +68,11 @@ public interface INetworkControl {
      */
     MyChannelListener getChannelListener();
 
+    /** getter for an group info listener
+     * @return GroupInfoListener
+     */
+    MyGroupInfoListener getGroupInfoListener();
+
     /** getter for an list of peers
      * @return list with peers
      */
@@ -72,7 +81,12 @@ public interface INetworkControl {
     /** getter for an list of peer for recycler View
      * @return list with peers
      */
-    List<AvailablePeer> getAvailablePeerList();
+    List<UserImpl> getAvailablePeerList();
+
+    /** getter for an list of peers in the group for recycler View
+     * @return list with peers
+     */
+    List<UserImpl> getGroupPeerList();
 
     /** getter for a "client" socket
      * @return socket for receiving clients
