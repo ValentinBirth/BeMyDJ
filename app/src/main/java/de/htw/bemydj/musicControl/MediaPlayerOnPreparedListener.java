@@ -21,7 +21,7 @@ public class MediaPlayerOnPreparedListener implements MediaPlayer.OnPreparedList
     @Override
     public void onPrepared(MediaPlayer mp) {
         ImageView btRew = homeFragment.requireView().findViewById(R.id.btnRew);
-        ImageView btFor = homeFragment.requireView().findViewById(R.id.btwFor);
+        ImageView btFor = homeFragment.requireView().findViewById(R.id.btnFor);
         ImageView btPlay = homeFragment.requireView().findViewById(R.id.btnPlay);
         ImageView btPause = homeFragment.requireView().findViewById(R.id.btnPause);
         TextView playerDuration = homeFragment.requireView().findViewById(R.id.playerDuration);

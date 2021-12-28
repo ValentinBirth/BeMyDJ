@@ -1,16 +1,18 @@
-package de.htw.bemydj.ui.userInfo;
+package de.htw.bemydj.ui.appInstruction;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class UserInfoViewModel extends ViewModel {
+public class AppInstructionViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public UserInfoViewModel() {
+    public AppInstructionViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is UserInfo fragment");
+        //TODO add instructions
+        String instruction = "Instruction";
+        mText.setValue(instruction);
     }
 
     public LiveData<String> getText() {

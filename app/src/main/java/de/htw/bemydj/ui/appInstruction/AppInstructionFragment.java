@@ -1,4 +1,4 @@
-package de.htw.bemydj.ui.appInfo;
+package de.htw.bemydj.ui.appInstruction;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,23 +12,23 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import de.htw.bemydj.databinding.FragmentAppInfoBinding;
+import de.htw.bemydj.databinding.FragmentAppInstructionBinding;
 
-public class AppInfoFragment extends Fragment {
+public class AppInstructionFragment extends Fragment {
 
-    private AppInfoViewModel appInfoViewModel;
-    private FragmentAppInfoBinding binding;
+    private AppInstructionViewModel appInstructionViewModel;
+    private FragmentAppInstructionBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        appInfoViewModel =
-                new ViewModelProvider(this).get(AppInfoViewModel.class);
+        appInstructionViewModel =
+                new ViewModelProvider(this).get(AppInstructionViewModel.class);
 
-        binding = FragmentAppInfoBinding.inflate(inflater, container, false);
+        binding = FragmentAppInstructionBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textAppInfo;
-        appInfoViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        final TextView textView = binding.textAppInstruction;
+        appInstructionViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

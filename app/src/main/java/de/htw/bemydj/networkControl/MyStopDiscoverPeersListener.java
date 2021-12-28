@@ -18,14 +18,18 @@ public class MyStopDiscoverPeersListener implements WifiP2pManager.ActionListene
     @Override
     public void onSuccess() {
         TextView connectionStatus = activity.findViewById(R.id.connectionStatus);
-        connectionStatus.setText(R.string.discovery_stopped);
+        if(connectionStatus!=null) {
+            connectionStatus.setText(R.string.discovery_stopped);
+        }
         Log.e(TAG,"Discovery stopped");
     }
 
     @Override
     public void onFailure(int reason) {
         TextView connectionStatus = activity.findViewById(R.id.connectionStatus);
-        connectionStatus.setText(R.string.discovery_failed);
+        if (connectionStatus!=null) {
+            connectionStatus.setText(R.string.discovery_failed);
+        }
         Log.e(TAG,"Discovery stopped failed with Code: "+reason);
     }
 }

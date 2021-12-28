@@ -17,7 +17,6 @@ public class GroupPeersRecyclerViewAdapter extends RecyclerView.Adapter<Recycler
 
     private final NetworkControlImpl networkControl;
     private Context mContext;
-    private Dialog connectDialog;
 
     public GroupPeersRecyclerViewAdapter(Context mContext, NetworkControlImpl networkControl){
         this.mContext = mContext;
@@ -33,9 +32,6 @@ public class GroupPeersRecyclerViewAdapter extends RecyclerView.Adapter<Recycler
 
         RecyclerViewHolderPeers RecyclerViewHolderGroupPeers = new RecyclerViewHolderPeers(v);
 
-        connectDialog = new Dialog(mContext);
-        connectDialog.setContentView(R.layout.dialog_connect);
-
         return RecyclerViewHolderGroupPeers;
     }
 
@@ -49,7 +45,7 @@ public class GroupPeersRecyclerViewAdapter extends RecyclerView.Adapter<Recycler
 
     @Override
     public int getItemCount() {
-        return networkControl.getAvailablePeerList().size();
+        return networkControl.getGroupPeerList().size();
     }
 
 }

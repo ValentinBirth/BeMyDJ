@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Studium/3.Semester/MobAnw/Semesterprojekt/BeMyDJ/app/src/main/res/layout/fragment_app_instruction.xml" value="0.29315332690453233" />
+        <entry key="..\:/Studium/3.Semester/MobAnw/Semesterprojekt/BeMyDJ/app/src/main/res/layout/fragment_home.xml" value="0.2515625" />
+        <entry key="..\:/Studium/3.Semester/MobAnw/Semesterprojekt/BeMyDJ/app/src/main/res/layout/fragment_network_control.xml" value="0.42857142857142855" />
         <entry key="..\:/Users/tschu/AndroidStudioProjects/BeMyDJ/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3828125" />
         <entry key="..\:/Users/tschu/AndroidStudioProjects/BeMyDJ/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3828125" />
         <entry key="..\:/Users/tschu/AndroidStudioProjects/BeMyDJ/app/src/main/res/drawable/ic_menu_camera.xml" value="0.3828125" />
@@ -29,7 +32,6 @@
         <entry key="..\:/Users/tschu/AndroidStudioProjects/BeMyDJ/app/src/main/res/layout/availablepeers_fragment.xml" value="0.28306159420289856" />
         <entry key="..\:/Users/tschu/AndroidStudioProjects/BeMyDJ/app/src/main/res/layout/call_fragment.xml" value="0.28306159420289856" />
         <entry key="..\:/Users/tschu/AndroidStudioProjects/BeMyDJ/app/src/main/res/layout/content_main.xml" value="0.1" />
-        <entry key="..\:/Users/tschu/AndroidStudioProjects/BeMyDJ/app/src/main/res/layout/dialog_connect.xml" value="0.35597826086956524" />
         <entry key="..\:/Users/tschu/AndroidStudioProjects/BeMyDJ/app/src/main/res/layout/fragment_app_info.xml" value="0.2115036231884058" />
         <entry key="..\:/Users/tschu/AndroidStudioProjects/BeMyDJ/app/src/main/res/layout/fragment_available_peers.xml" value="0.28306159420289856" />
         <entry key="..\:/Users/tschu/AndroidStudioProjects/BeMyDJ/app/src/main/res/layout/fragment_gallery.xml" value="0.1" />
@@ -44,7 +46,6 @@
         <entry key="..\:/Users/tschu/AndroidStudioProjects/BeMyDJ/app/src/main/res/layout/fragment_user_info.xml" value="0.2957427536231884" />
         <entry key="..\:/Users/tschu/AndroidStudioProjects/BeMyDJ/app/src/main/res/layout/group_fragmment.xml" value="0.2694746376811594" />
         <entry key="..\:/Users/tschu/AndroidStudioProjects/BeMyDJ/app/src/main/res/layout/item_availablepeer.xml" value="0.22" />
-        <entry key="..\:/Users/tschu/AndroidStudioProjects/BeMyDJ/app/src/main/res/layout/item_peer.xml" value="0.35144927536231885" />
         <entry key="..\:/Users/tschu/AndroidStudioProjects/BeMyDJ/app/src/main/res/layout/nav_header_main.xml" value="0.2957427536231884" />
         <entry key="..\:/Users/tschu/AndroidStudioProjects/BeMyDJ/app/src/main/res/layout/network_infro_fragment.xml" value="0.1" />
         <entry key="..\:/Users/tschu/AndroidStudioProjects/BeMyDJ/app/src/main/res/layout/networkcontrol_fragment.xml" value="0.28306159420289856" />

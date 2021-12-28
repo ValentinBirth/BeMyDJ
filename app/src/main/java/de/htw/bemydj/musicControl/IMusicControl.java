@@ -21,13 +21,13 @@ public interface IMusicControl {
 
     /** tells MediaPlayer to rewind given amount of time
      * @param milliseconds amount of time to rewind
-     * @return true if successful, else false
+     * @return string for new position in minute:seconds format
      */
     String rewind(int milliseconds);
 
     /** tells MediaPlayer to fast forward given amout of time
      * @param milliseconds amount of time to fast forward
-     * @return true if successful, else false
+     * @return string for new position in minute:seconds format
      */
     String fastForward(int milliseconds);
 

@@ -85,7 +85,7 @@
             android:src="@drawable/ic_play"></ImageView>
 
         <ImageView
-            android:id="@+id/btwFor"
+            android:id="@+id/btnFor"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:src="@drawable/ic_fast_forward"></ImageView>
