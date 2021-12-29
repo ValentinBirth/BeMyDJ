@@ -31,9 +31,7 @@ public class MyActivityResultCallback implements androidx.activity.result.Activi
             try {
                 ParcelFileDescriptor pdf = homeFragment.getContext().getContentResolver().openFileDescriptor(result, "r");
                 FileDescriptor fd = pdf.getFileDescriptor();
-                homeFragment.getMusicPlayerController().getMediaPlayer().reset();
-                homeFragment.getMusicPlayerController().getMediaPlayer().setDataSource(fd);
-                homeFragment.getMusicPlayerController().getMediaPlayer().prepareAsync();
+                homeFragment.getMusicPlayerController().resetPlayer(fd);
             } catch (IOException | NullPointerException e) {
                 Log.e(TAG, String.valueOf(e));
             }

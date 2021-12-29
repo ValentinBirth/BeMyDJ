@@ -14,13 +14,12 @@ import android.net.wifi.p2p.WifiP2pManager;
 
 import androidx.core.app.ActivityCompat;
 
-import java.net.Socket;
+import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.List;
 
 import de.htw.bemydj.djData.UserImpl;
 import de.htw.bemydj.ui.networkControlView.NetworkControlActivity;
-import de.htw.bemydj.ui.networkControlView.AvailablePeersRecyclerViewAdapter;
 
 public class NetworkControlImpl implements INetworkControl {
     private WifiP2pManager wifiP2pManager;
@@ -37,6 +36,8 @@ public class NetworkControlImpl implements INetworkControl {
     private List<UserImpl> availablePeerList;
     private List<UserImpl> groupPeerList;
     private MyGroupInfoListener myGroupInfoListener;
+    private StreamingClient clientSocket;
+    private StreamingServer serverSocket;
 
     public NetworkControlImpl(NetworkControlActivity ncActivity) {
         this.peers = new ArrayList<>();
@@ -151,12 +152,22 @@ public class NetworkControlImpl implements INetworkControl {
     }
 
     @Override
-    public Socket getClientSocket() {
-        return null;
+    public StreamingClient getClientSocket() {
+        return clientSocket;
     }
 
     @Override
-    public Socket getServerSocket() {
-        return null;
+    public StreamingServer getServerSocket() {
+        return serverSocket;
+    }
+
+    @Override
+    public void createServerSocket() {
+        serverSocket = new StreamingServer();
+    }
+
+    @Override
+    public void createClientSocket(InetAddress groupOwnerAdress) {
+        clientSocket = new StreamingClient(groupOwnerAdress);
     }
 }

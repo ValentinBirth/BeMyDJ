@@ -55,7 +55,7 @@ public class WifiP2pBroadcastReceiver extends BroadcastReceiver {
             }
             NetworkInfo networkInfo = intent.getParcelableExtra(WifiP2pManager.EXTRA_NETWORK_INFO);
             if (networkInfo.isConnected()) {
-                manager.requestConnectionInfo(channel, new MyConnectionInfoListener());
+                manager.requestConnectionInfo(channel, new MyConnectionInfoListener(ncActivity.getNetworkControlImpl()));
                 manager.requestGroupInfo(channel,myGroupInfoListener);
             }else {
                 Log.e(TAG,"Not connected");

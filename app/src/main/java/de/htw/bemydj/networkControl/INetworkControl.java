@@ -5,7 +5,7 @@ import android.content.IntentFilter;
 import android.net.wifi.p2p.WifiP2pDevice;
 import android.net.wifi.p2p.WifiP2pManager;
 
-import java.net.Socket;
+import java.net.InetAddress;
 import java.util.List;
 
 import de.htw.bemydj.djData.UserImpl;
@@ -91,10 +91,21 @@ public interface INetworkControl {
     /** getter for a "client" socket
      * @return socket for receiving clients
      */
-    Socket getClientSocket();
+    StreamingClient getClientSocket();
 
     /** getter for a "server" socket
      * @return socket for sending clients
      */
-    Socket getServerSocket();
+    StreamingServer getServerSocket();
+
+    /**
+     * creates an Server Socket
+     */
+    void createServerSocket();
+
+    /**
+     * creates an Client Socket
+     * @param groupOwnerAdress GroupOwner of P2P Group
+     */
+    void createClientSocket(InetAddress groupOwnerAdress);
 }
