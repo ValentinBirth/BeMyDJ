@@ -5,6 +5,7 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import de.htw.bemydj.R;
+import de.htw.bemydj.ui.networkControlView.groupPeersRecyclerView.NetworkControlActivity;
 
 public class DiscoverPeersSwitchListener implements CompoundButton.OnCheckedChangeListener {
     private static final String TAG = DiscoverPeersSwitchListener.class.toString();

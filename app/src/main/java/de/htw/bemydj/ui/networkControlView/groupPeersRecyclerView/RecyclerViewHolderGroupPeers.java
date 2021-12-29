@@ -1,4 +1,4 @@
-package de.htw.bemydj.ui.networkControlView;
+package de.htw.bemydj.ui.networkControlView.groupPeersRecyclerView;
 
 import android.view.View;
 import android.widget.LinearLayout;
@@ -9,13 +9,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import de.htw.bemydj.R;
 
-public class RecyclerViewHolderPeers extends RecyclerView.ViewHolder {
+public class RecyclerViewHolderGroupPeers extends RecyclerView.ViewHolder {
 
     private TextView tv_Name;
     private TextView tv_adress;
     private LinearLayout item_Peer;
 
-    public RecyclerViewHolderPeers(@NonNull View itemView) {
+    public RecyclerViewHolderGroupPeers(@NonNull View itemView) {
         super(itemView);
         item_Peer = itemView.findViewById(R.id.Peer_item);
         tv_Name = itemView.findViewById(R.id.peername);

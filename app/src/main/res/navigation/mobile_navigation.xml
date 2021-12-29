@@ -19,7 +19,7 @@
 
     <activity
         android:id="@+id/nav_network_control"
-        android:name="de.htw.bemydj.ui.networkControlView.NetworkControlActivity"
+        android:name="de.htw.bemydj.ui.networkControlView.groupPeersRecyclerView.NetworkControlActivity"
         android:label="@string/menu_network_control"
         tools:layout="@layout/activity_network_control" />
 

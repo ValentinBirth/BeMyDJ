@@ -1,16 +1,11 @@
-package de.htw.bemydj.ui.networkControlView;
+package de.htw.bemydj.ui.networkControlView.groupPeersRecyclerView;
 
-import android.Manifest;
 import android.content.pm.PackageManager;
-import android.net.wifi.WpsInfo;
-import android.net.wifi.p2p.WifiP2pConfig;
-import android.net.wifi.p2p.WifiP2pDevice;
 import android.os.Bundle;
 
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,6 +13,10 @@ import android.widget.Toast;
 
 import de.htw.bemydj.databinding.ActivityNetworkControlBinding;
 import de.htw.bemydj.networkControl.NetworkControlImpl;
+import de.htw.bemydj.ui.networkControlView.GroupFragment;
+import de.htw.bemydj.ui.networkControlView.NetworkControlFragment;
+import de.htw.bemydj.ui.networkControlView.SectionsPagerAdapter;
+import de.htw.bemydj.ui.networkControlView.availablePeersRecyclerView.AvailablePeersFragment;
 
 public class NetworkControlActivity extends AppCompatActivity {
 

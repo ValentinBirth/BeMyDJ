@@ -3,7 +3,7 @@ package de.htw.bemydj.networkControl;
 import android.net.wifi.p2p.WifiP2pManager;
 import android.util.Log;
 
-import de.htw.bemydj.ui.networkControlView.NetworkControlActivity;
+import de.htw.bemydj.ui.networkControlView.groupPeersRecyclerView.NetworkControlActivity;
 
 public class MyConnectListener implements WifiP2pManager.ActionListener{
     private static final String TAG = MyConnectListener.class.toString();

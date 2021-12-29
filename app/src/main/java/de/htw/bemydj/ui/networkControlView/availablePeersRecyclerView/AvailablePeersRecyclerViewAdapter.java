@@ -1,4 +1,4 @@
-package de.htw.bemydj.ui.networkControlView;
+package de.htw.bemydj.ui.networkControlView.availablePeersRecyclerView;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -12,9 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import de.htw.bemydj.R;
 import de.htw.bemydj.networkControl.NetworkControlImpl;
 import de.htw.bemydj.ui.networkControlView.OnClickAvailablePeer;
-import de.htw.bemydj.ui.networkControlView.RecyclerViewHolderPeers;
 
-public class AvailablePeersRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolderPeers> {
+public class AvailablePeersRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolderAvailablePeers> {
 
     private final NetworkControlImpl networkControl;
     private Context mContext;
@@ -27,12 +26,12 @@ public class AvailablePeersRecyclerViewAdapter extends RecyclerView.Adapter<Recy
 
     @NonNull
     @Override
-    public RecyclerViewHolderPeers onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public RecyclerViewHolderAvailablePeers onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View v;
         v = LayoutInflater.from(mContext).inflate(R.layout.item_peer,parent,false);
 
-        RecyclerViewHolderPeers recyclerViewHolderAvailablePeers = new RecyclerViewHolderPeers(v);
+        RecyclerViewHolderAvailablePeers recyclerViewHolderAvailablePeers = new RecyclerViewHolderAvailablePeers(v);
 
         connectDialog = new Dialog(mContext);
         connectDialog.setContentView(R.layout.dialog_connect);
@@ -43,7 +42,7 @@ public class AvailablePeersRecyclerViewAdapter extends RecyclerView.Adapter<Recy
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerViewHolderPeers holder, int position) {
+    public void onBindViewHolder(@NonNull RecyclerViewHolderAvailablePeers holder, int position) {
 
         holder.getTv_Name().setText(networkControl.getAvailablePeerList().get(position).getName());
         holder.getTv_adress().setText(networkControl.getAvailablePeerList().get(position).getAdress());

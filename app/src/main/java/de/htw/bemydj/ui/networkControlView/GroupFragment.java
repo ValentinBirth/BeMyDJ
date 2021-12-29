@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import de.htw.bemydj.R;
+import de.htw.bemydj.ui.networkControlView.groupPeersRecyclerView.GroupPeersRecyclerViewAdapter;
+import de.htw.bemydj.ui.networkControlView.groupPeersRecyclerView.NetworkControlActivity;
 
 public class GroupFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener{
     private NetworkControlActivity networkControlActivity;

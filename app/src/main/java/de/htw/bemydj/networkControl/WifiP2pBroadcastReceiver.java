@@ -1,7 +1,6 @@
 package de.htw.bemydj.networkControl;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -12,7 +11,7 @@ import android.util.Log;
 
 import androidx.core.app.ActivityCompat;
 
-import de.htw.bemydj.ui.networkControlView.NetworkControlActivity;
+import de.htw.bemydj.ui.networkControlView.groupPeersRecyclerView.NetworkControlActivity;
 
 public class WifiP2pBroadcastReceiver extends BroadcastReceiver {
     private static final String TAG = WifiP2pBroadcastReceiver.class.getName();

@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.htw.bemydj.djData.UserImpl;
-import de.htw.bemydj.ui.networkControlView.NetworkControlActivity;
+import de.htw.bemydj.ui.networkControlView.groupPeersRecyclerView.NetworkControlActivity;
 
 public class NetworkControlImpl implements INetworkControl {
     private WifiP2pManager wifiP2pManager;
