@@ -5,7 +5,7 @@ import android.util.Log;
 import android.widget.TextView;
 
 import de.htw.bemydj.R;
-import de.htw.bemydj.ui.networkControlView.groupPeersRecyclerView.NetworkControlActivity;
+import de.htw.bemydj.ui.networkControlView.NetworkControlActivity;
 
 public class MyStopDiscoverPeersListener implements WifiP2pManager.ActionListener {
     private static final String TAG = MyDiscoverPeersListener.class.toString();

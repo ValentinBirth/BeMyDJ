@@ -11,7 +11,7 @@ import android.util.Log;
 
 import androidx.core.app.ActivityCompat;
 
-import de.htw.bemydj.ui.networkControlView.groupPeersRecyclerView.NetworkControlActivity;
+import de.htw.bemydj.ui.networkControlView.NetworkControlActivity;
 
 public class WifiP2pBroadcastReceiver extends BroadcastReceiver {
     private static final String TAG = WifiP2pBroadcastReceiver.class.getName();

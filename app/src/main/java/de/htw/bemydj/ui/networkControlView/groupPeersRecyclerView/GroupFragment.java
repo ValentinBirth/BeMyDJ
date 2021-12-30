@@ -1,4 +1,4 @@
-package de.htw.bemydj.ui.networkControlView;
+package de.htw.bemydj.ui.networkControlView.groupPeersRecyclerView;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import de.htw.bemydj.R;
+import de.htw.bemydj.ui.networkControlView.NetworkControlActivity;
 import de.htw.bemydj.ui.networkControlView.groupPeersRecyclerView.GroupPeersRecyclerViewAdapter;
-import de.htw.bemydj.ui.networkControlView.groupPeersRecyclerView.NetworkControlActivity;
 
 public class GroupFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener{
     private NetworkControlActivity networkControlActivity;

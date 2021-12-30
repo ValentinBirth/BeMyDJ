@@ -1,4 +1,4 @@
-package de.htw.bemydj.ui.networkControlView.groupPeersRecyclerView;
+package de.htw.bemydj.ui.networkControlView;
 
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -13,10 +13,8 @@ import android.widget.Toast;
 
 import de.htw.bemydj.databinding.ActivityNetworkControlBinding;
 import de.htw.bemydj.networkControl.NetworkControlImpl;
-import de.htw.bemydj.ui.networkControlView.GroupFragment;
-import de.htw.bemydj.ui.networkControlView.NetworkControlFragment;
-import de.htw.bemydj.ui.networkControlView.SectionsPagerAdapter;
 import de.htw.bemydj.ui.networkControlView.availablePeersRecyclerView.AvailablePeersFragment;
+import de.htw.bemydj.ui.networkControlView.groupPeersRecyclerView.GroupFragment;
 
 public class NetworkControlActivity extends AppCompatActivity {
 

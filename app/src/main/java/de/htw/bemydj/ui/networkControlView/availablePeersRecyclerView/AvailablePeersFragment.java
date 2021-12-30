@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import de.htw.bemydj.R;
-import de.htw.bemydj.ui.networkControlView.groupPeersRecyclerView.NetworkControlActivity;
+import de.htw.bemydj.ui.networkControlView.NetworkControlActivity;
 
 public class AvailablePeersFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
     private NetworkControlActivity networkControlActivity;
