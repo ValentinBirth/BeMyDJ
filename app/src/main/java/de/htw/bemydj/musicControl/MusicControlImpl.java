@@ -19,6 +19,9 @@ public class MusicControlImpl implements IMusicControl{
     private final Handler handler = new Handler();
     private final Runnable musicPlayerThread;
 
+    /** Constructor for a Media Player
+     * @param homeFragment Fragment on which the player runs
+     */
     public MusicControlImpl(HomeFragment homeFragment){
         mediaPlayer = new MediaPlayer();
         mediaPlayer.setAudioAttributes(new AudioAttributes.Builder()
@@ -37,6 +40,14 @@ public class MusicControlImpl implements IMusicControl{
                 handler.postDelayed(this,500);
             }
         };
+    }
+
+    /** Constructor for test purposes
+     * @param mediaPlayer media player
+     */
+    public MusicControlImpl(MediaPlayer mediaPlayer){
+        this.mediaPlayer = mediaPlayer;
+        musicPlayerThread = null;
     }
 
     @Override
@@ -102,6 +113,7 @@ public class MusicControlImpl implements IMusicControl{
         return handler;
     }
 
+    @Override
     public Runnable getRunnable() {
         return musicPlayerThread;
     }
