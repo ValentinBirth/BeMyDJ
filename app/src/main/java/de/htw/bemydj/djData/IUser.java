@@ -17,11 +17,6 @@ public interface IUser {
      */
     String getAdress();
 
-    /** getter for queue
-     * @return LinkedList
-     */
-    LinkedList<ITrack> getQueue();
-
     /** setter for username
      * @param name String of username
      */

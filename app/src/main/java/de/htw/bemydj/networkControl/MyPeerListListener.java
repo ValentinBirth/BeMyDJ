@@ -9,7 +9,7 @@ import de.htw.bemydj.djData.UserImpl;
 
 public class MyPeerListListener implements WifiP2pManager.PeerListListener{
     private static final String TAG = MyPeerListListener.class.getName();
-    private NetworkControlImpl networkControl;
+    private final NetworkControlImpl networkControl;
 
     public MyPeerListListener(NetworkControlImpl networkControl){
         this.networkControl = networkControl;

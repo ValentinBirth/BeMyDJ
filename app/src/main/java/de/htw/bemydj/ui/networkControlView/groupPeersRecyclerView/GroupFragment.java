@@ -17,8 +17,7 @@ import de.htw.bemydj.ui.networkControlView.NetworkControlActivity;
 import de.htw.bemydj.ui.networkControlView.groupPeersRecyclerView.GroupPeersRecyclerViewAdapter;
 
 public class GroupFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener{
-    private NetworkControlActivity networkControlActivity;
-    private View v;
+    private final NetworkControlActivity networkControlActivity;
     private RecyclerView groupPeersRecyclerView;
     private SwipeRefreshLayout mSwipeRefreshLayout;
 
@@ -29,7 +28,7 @@ public class GroupFragment extends Fragment implements SwipeRefreshLayout.OnRefr
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        v = inflater.inflate(R.layout.fragment_group,container,false);
+        View v = inflater.inflate(R.layout.fragment_group, container, false);
         groupPeersRecyclerView = v.findViewById(R.id.groupPeersRecyclerView);
         groupPeersRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 

@@ -16,8 +16,7 @@ import de.htw.bemydj.R;
 import de.htw.bemydj.ui.networkControlView.NetworkControlActivity;
 
 public class AvailablePeersFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
-    private NetworkControlActivity networkControlActivity;
-    private View v;
+    private final NetworkControlActivity networkControlActivity;
     private RecyclerView availablePeersRecyclerView;
     private SwipeRefreshLayout mSwipeRefreshLayout;
 
@@ -28,7 +27,7 @@ public class AvailablePeersFragment extends Fragment implements SwipeRefreshLayo
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        v = inflater.inflate(R.layout.fragment_available_peers,container,false);
+        View v = inflater.inflate(R.layout.fragment_available_peers, container, false);
         availablePeersRecyclerView = v.findViewById(R.id.availablePeersRecyclerView);
         availablePeersRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 

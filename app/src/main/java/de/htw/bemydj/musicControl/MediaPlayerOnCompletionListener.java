@@ -4,13 +4,10 @@ import android.media.MediaPlayer;
 import android.view.View;
 import android.widget.ImageView;
 
-import de.htw.bemydj.R;
-import de.htw.bemydj.ui.homeScreen.HomeFragment;
-
 public class MediaPlayerOnCompletionListener implements MediaPlayer.OnCompletionListener{
-    private ImageView btnPause;
-    private ImageView btnPlay;
-    private IMusicControl musicPlayerControl;
+    private final ImageView btnPause;
+    private final ImageView btnPlay;
+    private final IMusicControl musicPlayerControl;
 
 
     public MediaPlayerOnCompletionListener(IMusicControl musicPlayerControl, ImageView btnPause, ImageView btnPlay) {

@@ -14,7 +14,7 @@ import de.htw.bemydj.networkControl.NetworkControlImpl;
 public class GroupPeersRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolderGroupPeers> {
 
     private final NetworkControlImpl networkControl;
-    private Context mContext;
+    private final Context mContext;
 
     public GroupPeersRecyclerViewAdapter(Context mContext, NetworkControlImpl networkControl){
         this.mContext = mContext;
@@ -28,9 +28,7 @@ public class GroupPeersRecyclerViewAdapter extends RecyclerView.Adapter<Recycler
         View v;
         v = LayoutInflater.from(mContext).inflate(R.layout.item_peer,parent,false);
 
-        RecyclerViewHolderGroupPeers RecyclerViewHolderGroupPeers = new RecyclerViewHolderGroupPeers(v);
-
-        return RecyclerViewHolderGroupPeers;
+        return new RecyclerViewHolderGroupPeers(v);
     }
 
     @Override

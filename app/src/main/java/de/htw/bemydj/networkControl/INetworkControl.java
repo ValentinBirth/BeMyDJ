@@ -3,7 +3,6 @@ package de.htw.bemydj.networkControl;
 import android.content.BroadcastReceiver;
 import android.content.IntentFilter;
 import android.net.wifi.p2p.WifiP2pDevice;
-import android.net.wifi.p2p.WifiP2pManager;
 
 import java.net.InetAddress;
 import java.util.List;
@@ -28,16 +27,6 @@ public interface INetworkControl {
      */
     void connect (String deviceAddress);
 
-    /** getter for WifiP2pManager.Channel
-     * @return WifiP2pManager.Channel
-     */
-    WifiP2pManager.Channel getChannel();
-
-    /** getter for WifiP2pManager
-     * @return a WifiP2pManager
-     */
-    WifiP2pManager getWifiP2pManager();
-
     /** getter for IntentFilter
      * @return an IntentFilter
      */
@@ -47,31 +36,6 @@ public interface INetworkControl {
      * @return an broadcastreceiver
      */
     BroadcastReceiver getBroadCastReceiver();
-
-    /** getter for discover peers listener
-     * @return DiscoverPeersListener
-     */
-    MyDiscoverPeersListener getDiscoverPeersListener();
-
-    /** getter for an connection listener
-     * @return ConnectListener
-     */
-    MyConnectListener getConnectListener();
-
-    /** getter for an peer list listener
-     * @return PeerListListener
-     */
-    MyPeerListListener getPeerListListener();
-
-    /** getter for an channel listener
-     * @return ChannelListener
-     */
-    MyChannelListener getChannelListener();
-
-    /** getter for an group info listener
-     * @return GroupInfoListener
-     */
-    MyGroupInfoListener getGroupInfoListener();
 
     /** getter for an list of peers
      * @return list with peers

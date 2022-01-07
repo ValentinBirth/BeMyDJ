@@ -16,10 +16,10 @@ import de.htw.bemydj.ui.networkControlView.NetworkControlActivity;
 public class WifiP2pBroadcastReceiver extends BroadcastReceiver {
     private static final String TAG = WifiP2pBroadcastReceiver.class.getName();
     private final MyGroupInfoListener myGroupInfoListener;
-    private WifiP2pManager manager;
-    private WifiP2pManager.Channel channel;
-    private NetworkControlActivity ncActivity;
-    private MyPeerListListener myPeerListListener;
+    private final WifiP2pManager manager;
+    private final WifiP2pManager.Channel channel;
+    private final NetworkControlActivity ncActivity;
+    private final MyPeerListListener myPeerListListener;
 
     public WifiP2pBroadcastReceiver(WifiP2pManager manager, WifiP2pManager.Channel channel, NetworkControlActivity ncActivity, MyPeerListListener myPeerListListener, MyGroupInfoListener myGroupInfoListener) {
         super();

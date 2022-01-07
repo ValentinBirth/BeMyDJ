@@ -4,8 +4,13 @@ import java.io.File;
 
 public class TrackImpl implements ITrack{
     private File file;
-    private UserImpl User;
+    private final UserImpl User;
     private boolean isPlaying;
+
+    public TrackImpl(File file, UserImpl user) {
+        this.file = file;
+        User = user;
+    }
 
     @Override
     public boolean isPlaying() {

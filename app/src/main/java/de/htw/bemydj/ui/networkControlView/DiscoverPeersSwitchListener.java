@@ -8,8 +8,7 @@ import de.htw.bemydj.R;
 
 public class DiscoverPeersSwitchListener implements CompoundButton.OnCheckedChangeListener {
     private static final String TAG = DiscoverPeersSwitchListener.class.toString();
-    private NetworkControlActivity networkControlActivity;
-    private TextView connectionStatus;
+    private final NetworkControlActivity networkControlActivity;
 
     public DiscoverPeersSwitchListener(NetworkControlActivity networkControlActivity) {
         this.networkControlActivity = networkControlActivity;
@@ -17,7 +16,7 @@ public class DiscoverPeersSwitchListener implements CompoundButton.OnCheckedChan
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        connectionStatus = networkControlActivity.findViewById(R.id.connectionStatus);
+        TextView connectionStatus = networkControlActivity.findViewById(R.id.connectionStatus);
         if(isChecked){
             connectionStatus.setText(R.string.discovery_initiated);
             Log.e(TAG,"Discovery initiated");

@@ -11,8 +11,8 @@ import de.htw.bemydj.ui.networkControlView.availablePeersRecyclerView.RecyclerVi
 
 public class OnClickAvailablePeer implements View.OnClickListener {
     private final NetworkControlImpl networkControl;
-    private RecyclerViewHolderAvailablePeers recyclerViewHolderAvailablePeers;
-    private Dialog connectDialog;
+    private final RecyclerViewHolderAvailablePeers recyclerViewHolderAvailablePeers;
+    private final Dialog connectDialog;
 
     public OnClickAvailablePeer(Dialog connectDialog, NetworkControlImpl networkControl, RecyclerViewHolderAvailablePeers recyclerViewHolderAvailablePeers) {
         this.connectDialog = connectDialog;

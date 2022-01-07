@@ -15,9 +15,8 @@ import androidx.fragment.app.Fragment;
 import de.htw.bemydj.R;
 
 public class NetworkControlFragment extends Fragment {
-    private View v;
-    private NetworkControlActivity networkControlActivity;
-    private TextView textView;
+    private final NetworkControlActivity networkControlActivity;
+
     public NetworkControlFragment(NetworkControlActivity networkControlActivity) {
         this.networkControlActivity = networkControlActivity;
     }
@@ -26,8 +25,8 @@ public class NetworkControlFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        v = inflater.inflate(R.layout.fragment_network_control,container,false);
-        textView = v.findViewById(R.id.userInfoStatus);
+        View v = inflater.inflate(R.layout.fragment_network_control, container, false);
+        TextView textView = v.findViewById(R.id.userInfoStatus);
 
         String userInfo = "Device Name: "+Settings.Global.getString(networkControlActivity.getContentResolver(), "device_name");
         textView.setText(userInfo);

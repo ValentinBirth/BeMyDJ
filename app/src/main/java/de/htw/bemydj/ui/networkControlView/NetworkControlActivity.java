@@ -18,29 +18,23 @@ import de.htw.bemydj.ui.networkControlView.groupPeersRecyclerView.GroupFragment;
 
 public class NetworkControlActivity extends AppCompatActivity {
 
-    private ActivityNetworkControlBinding binding;
-
     private NetworkControlImpl networkControlImpl;
-
-    private SectionsPagerAdapter sectionsPagerAdapter;
-    private TabLayout tabLayout;
-    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         networkControlImpl = new NetworkControlImpl(this);
 
-        binding = ActivityNetworkControlBinding.inflate(getLayoutInflater());
+        de.htw.bemydj.databinding.ActivityNetworkControlBinding binding = ActivityNetworkControlBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        sectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         sectionsPagerAdapter.addFragment(new NetworkControlFragment(this), "Network Control");
         sectionsPagerAdapter.addFragment(new AvailablePeersFragment(this), "Available Listeners");
         sectionsPagerAdapter.addFragment(new GroupFragment(this), "Group");
-        viewPager = binding.viewPager;
+        ViewPager viewPager = binding.viewPager;
         viewPager.setAdapter(sectionsPagerAdapter);
-        tabLayout = binding.tabs;
+        TabLayout tabLayout = binding.tabs;
         tabLayout.setupWithViewPager(viewPager);
         //TODO Add Toolbar like in MainActivity to open the Nav Drawer
     }

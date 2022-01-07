@@ -8,9 +8,9 @@ import android.widget.TextView;
 
 import java.io.FileDescriptor;
 import java.io.IOException;
+import java.util.Objects;
 
 import de.htw.bemydj.R;
-import de.htw.bemydj.networkControl.MyChannelListener;
 import de.htw.bemydj.ui.homeScreen.HomeFragment;
 
 public class MyActivityResultCallback implements androidx.activity.result.ActivityResultCallback<Uri> {
@@ -29,7 +29,7 @@ public class MyActivityResultCallback implements androidx.activity.result.Activi
         }else {
             test.setText(result.getPath());
             try {
-                ParcelFileDescriptor pdf = homeFragment.getContext().getContentResolver().openFileDescriptor(result, "r");
+                ParcelFileDescriptor pdf = homeFragment.requireContext().getContentResolver().openFileDescriptor(result, "r");
                 FileDescriptor fd = pdf.getFileDescriptor();
                 homeFragment.getMusicPlayerController().resetPlayer(fd);
             } catch (IOException | NullPointerException e) {

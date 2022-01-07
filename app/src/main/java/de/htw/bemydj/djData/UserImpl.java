@@ -2,17 +2,13 @@ package de.htw.bemydj.djData;
 
 import androidx.annotation.NonNull;
 
-import java.util.LinkedList;
-
 public class UserImpl implements IUser{
     private String name;
-    private String address;
-    private LinkedList<ITrack> warteschlange;
+    private final String address;
 
     public UserImpl(String deviceName, String deviceAddress) {
         this.name = deviceName;
         this.address = deviceAddress;
-        this.warteschlange = new LinkedList<>();
     }
 
     @Override
@@ -23,11 +19,6 @@ public class UserImpl implements IUser{
     @Override
     public String getAdress() {
         return address;
-    }
-
-    @Override
-    public LinkedList<ITrack> getQueue() {
-        return warteschlange;
     }
 
     @Override

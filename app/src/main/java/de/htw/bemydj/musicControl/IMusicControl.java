@@ -5,7 +5,6 @@ import android.os.Handler;
 
 import java.io.FileDescriptor;
 import java.io.IOException;
-import java.io.InputStream;
 
 /**
  * Interface for MusicControl

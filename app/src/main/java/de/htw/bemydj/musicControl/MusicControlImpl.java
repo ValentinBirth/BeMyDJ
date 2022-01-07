@@ -7,7 +7,6 @@ import android.widget.SeekBar;
 
 import java.io.FileDescriptor;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 

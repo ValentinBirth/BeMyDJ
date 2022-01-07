@@ -16,8 +16,7 @@ import de.htw.bemydj.ui.networkControlView.OnClickAvailablePeer;
 public class AvailablePeersRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolderAvailablePeers> {
 
     private final NetworkControlImpl networkControl;
-    private Context mContext;
-    private Dialog connectDialog;
+    private final Context mContext;
 
     public AvailablePeersRecyclerViewAdapter(Context mContext, NetworkControlImpl networkControl){
         this.mContext = mContext;
@@ -33,7 +32,7 @@ public class AvailablePeersRecyclerViewAdapter extends RecyclerView.Adapter<Recy
 
         RecyclerViewHolderAvailablePeers recyclerViewHolderAvailablePeers = new RecyclerViewHolderAvailablePeers(v);
 
-        connectDialog = new Dialog(mContext);
+        Dialog connectDialog = new Dialog(mContext);
         connectDialog.setContentView(R.layout.dialog_connect);
 
         recyclerViewHolderAvailablePeers.getItem_Peer().setOnClickListener(new OnClickAvailablePeer(connectDialog, networkControl, recyclerViewHolderAvailablePeers));

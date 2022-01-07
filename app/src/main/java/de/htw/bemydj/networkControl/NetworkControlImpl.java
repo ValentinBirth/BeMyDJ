@@ -22,20 +22,18 @@ import de.htw.bemydj.djData.UserImpl;
 import de.htw.bemydj.ui.networkControlView.NetworkControlActivity;
 
 public class NetworkControlImpl implements INetworkControl {
-    private WifiP2pManager wifiP2pManager;
-    private WifiP2pManager.Channel channel;
-    private IntentFilter intentFilter;
-    private BroadcastReceiver broadcastReceiver;
-    private MyDiscoverPeersListener myDiscoverPeersListener;
-    private MyStopDiscoverPeersListener myStopDiscoverPeersListener;
-    private MyConnectListener myConnectListener;
+    private final WifiP2pManager wifiP2pManager;
+    private final WifiP2pManager.Channel channel;
+    private final IntentFilter intentFilter;
+    private final BroadcastReceiver broadcastReceiver;
+    private final MyDiscoverPeersListener myDiscoverPeersListener;
+    private final MyStopDiscoverPeersListener myStopDiscoverPeersListener;
+    private final MyConnectListener myConnectListener;
     private List<WifiP2pDevice> peers;
-    private NetworkControlActivity ncActivity;
-    private MyChannelListener myChannelListener;
-    private MyPeerListListener myPeerListListener;
+    private final NetworkControlActivity ncActivity;
+    private final MyChannelListener myChannelListener;
     private List<UserImpl> availablePeerList;
     private List<UserImpl> groupPeerList;
-    private MyGroupInfoListener myGroupInfoListener;
     private StreamingClient clientSocket;
     private StreamingServer serverSocket;
 
@@ -47,10 +45,10 @@ public class NetworkControlImpl implements INetworkControl {
 
         this.myDiscoverPeersListener = new MyDiscoverPeersListener(ncActivity);
         this.myStopDiscoverPeersListener = new MyStopDiscoverPeersListener(ncActivity);
-        this.myConnectListener = new MyConnectListener(ncActivity);
+        this.myConnectListener = new MyConnectListener();
         this.myChannelListener = new MyChannelListener();
-        this.myPeerListListener = new MyPeerListListener(this);
-        this.myGroupInfoListener = new MyGroupInfoListener(this);
+        MyPeerListListener myPeerListListener = new MyPeerListListener(this);
+        MyGroupInfoListener myGroupInfoListener = new MyGroupInfoListener(this);
 
         this.wifiP2pManager = (WifiP2pManager) ncActivity.getSystemService(Context.WIFI_P2P_SERVICE);
         this.channel = wifiP2pManager.initialize(ncActivity, getMainLooper(), null);
@@ -92,16 +90,6 @@ public class NetworkControlImpl implements INetworkControl {
     }
 
     @Override
-    public WifiP2pManager.Channel getChannel() {
-        return channel;
-    }
-
-    @Override
-    public WifiP2pManager getWifiP2pManager() {
-        return wifiP2pManager;
-    }
-
-    @Override
     public IntentFilter getIntentFilter() {
         return intentFilter;
     }
@@ -109,31 +97,6 @@ public class NetworkControlImpl implements INetworkControl {
     @Override
     public BroadcastReceiver getBroadCastReceiver() {
         return broadcastReceiver;
-    }
-
-    @Override
-    public MyDiscoverPeersListener getDiscoverPeersListener() {
-        return myDiscoverPeersListener;
-    }
-
-    @Override
-    public MyConnectListener getConnectListener() {
-        return myConnectListener;
-    }
-
-    @Override
-    public MyPeerListListener getPeerListListener() {
-        return myPeerListListener;
-    }
-
-    @Override
-    public MyChannelListener getChannelListener() {
-        return myChannelListener;
-    }
-
-    @Override
-    public MyGroupInfoListener getGroupInfoListener() {
-        return myGroupInfoListener;
     }
 
     @Override

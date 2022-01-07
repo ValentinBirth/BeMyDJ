@@ -5,12 +5,11 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 
 import de.htw.bemydj.R;
-import de.htw.bemydj.ui.homeScreen.HomeFragment;
 
 public class MediaPlayerPlayListener implements View.OnClickListener{
-    private IMusicControl musicPlayerControl;
-    private ImageView btnPause;
-    private  SeekBar seekBar;
+    private final IMusicControl musicPlayerControl;
+    private final ImageView btnPause;
+    private final SeekBar seekBar;
 
 
     public MediaPlayerPlayListener(IMusicControl musicPlayerControl, ImageView btPause, SeekBar seekBar) {
