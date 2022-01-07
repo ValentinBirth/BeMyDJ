@@ -32,7 +32,7 @@ public class AvailablePeersFragment extends Fragment implements SwipeRefreshLayo
         availablePeersRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
 
-        mSwipeRefreshLayout = v.findViewById(R.id.swipe_container_available);
+        mSwipeRefreshLayout = v.findViewById(R.id.fragment_available_peers);
         mSwipeRefreshLayout.setOnRefreshListener(this);
 
         mSwipeRefreshLayout.post(() -> {

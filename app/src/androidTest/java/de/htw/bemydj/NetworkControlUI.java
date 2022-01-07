@@ -4,9 +4,10 @@ package de.htw.bemydj;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.Espresso.pressBack;
 import static androidx.test.espresso.action.ViewActions.click;
-import static androidx.test.espresso.assertion.ViewAssertions.doesNotExist;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.matcher.ViewMatchers.isChecked;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.isNotChecked;
 import static androidx.test.espresso.matcher.ViewMatchers.withClassName;
 import static androidx.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
@@ -22,10 +23,10 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 
 import androidx.test.espresso.ViewInteraction;
+import androidx.test.espresso.intent.rule.IntentsTestRule;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.filters.LargeTest;
-import androidx.test.rule.ActivityTestRule;
 import androidx.test.rule.GrantPermissionRule;
 
 import org.hamcrest.Description;
@@ -44,13 +45,18 @@ public class NetworkControlUI {
     public ActivityScenarioRule<MainActivity> rule = new ActivityScenarioRule<>(MainActivity.class);
 
     @Rule
+    public IntentsTestRule<MainActivity> activityTestRule =
+            new IntentsTestRule<>(MainActivity.class);
+
+    @Rule
     public GrantPermissionRule mGrantPermissionRule =
             GrantPermissionRule.grant(
                     "android.permission.ACCESS_FINE_LOCATION");
 
+
     @Test
-    public void networkCotrolUI() {
-        ViewInteraction appCompatImageButton = onView(
+    public void networkControlFragment(){
+        ViewInteraction navBar = onView(
                 allOf(withContentDescription("Navigationsleiste öffnen"),
                         childAtPosition(
                                 allOf(withId(R.id.toolbar),
@@ -60,7 +66,7 @@ public class NetworkControlUI {
                                 1),
                         isDisplayed()));
 
-        ViewInteraction navigationMenuItemView = onView(
+        ViewInteraction networkControlItem = onView(
                 allOf(withId(R.id.nav_network_control),
                         childAtPosition(
                                 allOf(withId(R.id.design_navigation_view),
@@ -70,15 +76,108 @@ public class NetworkControlUI {
                                 2),
                         isDisplayed()));
 
-        ViewInteraction networkControlTabTitle = onView(
-                allOf(withText("NETWORK CONTROL"),
-                        withParent(allOf(withContentDescription("Network Control"),
+        ViewInteraction networkControlTab = onView(
+                allOf(withParent(allOf(withContentDescription("Network Control"),
+                        withParent(IsInstanceOf.<View>instanceOf(android.widget.LinearLayout.class)))),
+                        isDisplayed()));
+
+        navBar.perform(click());
+        networkControlItem.perform(click());
+        networkControlTab.perform(click());
+        onView(withId(R.id.fragment_networkControl)).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void networkAvailablePeersFragment(){
+        ViewInteraction navBar = onView(
+                allOf(withContentDescription("Navigationsleiste öffnen"),
+                        childAtPosition(
+                                allOf(withId(R.id.toolbar),
+                                        childAtPosition(
+                                                withClassName(is("com.google.android.material.appbar.AppBarLayout")),
+                                                0)),
+                                1),
+                        isDisplayed()));
+
+        ViewInteraction networkControlItem = onView(
+                allOf(withId(R.id.nav_network_control),
+                        childAtPosition(
+                                allOf(withId(R.id.design_navigation_view),
+                                        childAtPosition(
+                                                withId(R.id.nav_view),
+                                                0)),
+                                2),
+                        isDisplayed()));
+
+        ViewInteraction availableListenerTab = onView(
+                allOf(withParent(allOf(withContentDescription("Available Listeners"),
                                 withParent(IsInstanceOf.<View>instanceOf(android.widget.LinearLayout.class)))),
                         isDisplayed()));
 
-        ViewInteraction deviceName = onView(
-                allOf(withId(R.id.userInfoStatus), withText("Device Name: Galaxy S20 5G"),
-                        withParent(withParent(withId(R.id.view_pager))),
+        navBar.perform(click());
+        networkControlItem.perform(click());
+        availableListenerTab.perform(click());
+        onView(withId(R.id.fragment_available_peers)).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void networkGroupFragment(){
+        ViewInteraction navBar = onView(
+                allOf(withContentDescription("Navigationsleiste öffnen"),
+                        childAtPosition(
+                                allOf(withId(R.id.toolbar),
+                                        childAtPosition(
+                                                withClassName(is("com.google.android.material.appbar.AppBarLayout")),
+                                                0)),
+                                1),
+                        isDisplayed()));
+
+        ViewInteraction networkControlItem = onView(
+                allOf(withId(R.id.nav_network_control),
+                        childAtPosition(
+                                allOf(withId(R.id.design_navigation_view),
+                                        childAtPosition(
+                                                withId(R.id.nav_view),
+                                                0)),
+                                2),
+                        isDisplayed()));
+
+        ViewInteraction groupTab = onView(
+                allOf(withParent(allOf(withContentDescription("Group"),
+                        withParent(IsInstanceOf.<View>instanceOf(android.widget.LinearLayout.class)))),
+                        isDisplayed()));
+
+        navBar.perform(click());
+        networkControlItem.perform(click());
+        groupTab.perform(click());
+        onView(withId(R.id.fragment_group)).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void networkControlSwitch(){
+        ViewInteraction navBar = onView(
+                allOf(withContentDescription("Navigationsleiste öffnen"),
+                        childAtPosition(
+                                allOf(withId(R.id.toolbar),
+                                        childAtPosition(
+                                                withClassName(is("com.google.android.material.appbar.AppBarLayout")),
+                                                0)),
+                                1),
+                        isDisplayed()));
+
+        ViewInteraction networkControlItem = onView(
+                allOf(withId(R.id.nav_network_control),
+                        childAtPosition(
+                                allOf(withId(R.id.design_navigation_view),
+                                        childAtPosition(
+                                                withId(R.id.nav_view),
+                                                0)),
+                                2),
+                        isDisplayed()));
+
+        ViewInteraction networkControlTab = onView(
+                allOf(withParent(allOf(withContentDescription("Network Control"),
+                        withParent(IsInstanceOf.<View>instanceOf(android.widget.LinearLayout.class)))),
                         isDisplayed()));
 
         ViewInteraction startDiscoverySwitch = onView(
@@ -88,65 +187,15 @@ public class NetworkControlUI {
 
         ViewInteraction connectionStatus = onView(withId(R.id.connectionStatus));
 
-        ViewInteraction availableListenersTab = onView(
-                allOf(withContentDescription("Available Listeners"),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.tabs),
-                                        0),
-                                1),
-                        isDisplayed()));
-
-        ViewInteraction availableListenerTabTitle = onView(
-                allOf(withText("AVAILABLE LISTENERS"),
-                        withParent(allOf(withContentDescription("Available Listeners"),
-                                withParent(IsInstanceOf.<View>instanceOf(android.widget.LinearLayout.class)))),
-                        isDisplayed()));
-
-        ViewInteraction availablePeersRecylerView = onView(
-                allOf(withId(R.id.availablePeersRecyclerView),
-                        withParent(allOf(withId(R.id.swipe_container_available),
-                                withParent(withId(R.id.view_pager)))),
-                        isDisplayed()));
-
-        ViewInteraction groupTab = onView(
-                allOf(withContentDescription("Group"),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.tabs),
-                                        0),
-                                2),
-                        isDisplayed()));
-
-        ViewInteraction groupPeersRecyclerView = onView(
-                allOf(withId(R.id.groupPeersRecyclerView),
-                        withParent(allOf(withId(R.id.swipe_container_group),
-                                withParent(withId(R.id.view_pager)))),
-                        isDisplayed()));
-
-        ViewInteraction groupTabTitle = onView(
-                allOf(withText("GROUP"),
-                        withParent(allOf(withContentDescription("Group"),
-                                withParent(IsInstanceOf.<View>instanceOf(android.widget.LinearLayout.class)))),
-                        isDisplayed()));
-
-        appCompatImageButton.perform(click());
-        navigationMenuItemView.perform(click());
-        networkControlTabTitle.check(matches(withText("NETWORK CONTROL")));
-        deviceName.check(matches(isDisplayed()));
-        startDiscoverySwitch.check(matches(isDisplayed()));
-        connectionStatus.check(matches(isDisplayed()));
-        connectionStatus.check(matches(withText("")));
+        navBar.perform(click());
+        networkControlItem.perform(click());
+        networkControlTab.perform(click());
+        startDiscoverySwitch.check(matches(isNotChecked()));
         startDiscoverySwitch.perform(click());
+        startDiscoverySwitch.check(matches(isChecked()));
         connectionStatus.check(matches(isDisplayed()));
-        availableListenersTab.perform(click());
-        availableListenerTabTitle.check(matches(withText("AVAILABLE LISTENERS")));
-        availablePeersRecylerView.check(matches(isDisplayed()));
-        groupTab.perform(click());
-        groupTabTitle.check(matches(withText("GROUP")));
-        groupPeersRecyclerView.check(matches(isDisplayed()));
-        pressBack();
     }
+
 
     private static Matcher<View> childAtPosition(
             final Matcher<View> parentMatcher, final int position) {
