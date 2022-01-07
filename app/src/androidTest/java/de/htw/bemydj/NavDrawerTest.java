@@ -38,7 +38,7 @@ import de.htw.bemydj.ui.networkControlView.NetworkControlActivity;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
-public class NavDrawer {
+public class NavDrawerTest {
 
     @Rule
     public ActivityScenarioRule<MainActivity> rule = new ActivityScenarioRule<>(MainActivity.class);
