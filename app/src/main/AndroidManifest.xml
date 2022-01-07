@@ -24,10 +24,8 @@
         android:name="android.permission.ACCESS_NETWORK_STATE"
         android:required="true" />
 
-    <uses-permission android:name="android.permission.LOCAL_MAC_ADDRESS" />
-
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
