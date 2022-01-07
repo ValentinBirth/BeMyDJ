@@ -1,7 +1,6 @@
 package de.htw.bemydj;
 
 
-import static androidx.test.InstrumentationRegistry.getTargetContext;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
@@ -65,24 +64,6 @@ public class NavDrawerTest {
         itemNetwork.check(matches(isDisplayed()));
         itemNetwork.perform(click());
         intended(hasComponent(new ComponentName(ApplicationProvider.getApplicationContext(), NetworkControlActivity.class)));
-    }
-
-    @Test
-    public void  navDrawerAppInstruction(){
-        ViewInteraction navDrawer = onView(
-                allOf(childAtPosition(
-                        allOf(withId(R.id.toolbar),
-                                childAtPosition(
-                                        withClassName(is("com.google.android.material.appbar.AppBarLayout")),
-                                        0)),
-                        1),isDisplayed()));
-        navDrawer.perform(click());
-
-        ViewInteraction itemApp = onView(
-                allOf(withId(R.id.design_menu_item_text), withText("App Instruction"),
-                        withParent(allOf(withId(R.id.nav_app_info),
-                                withParent(withId(R.id.design_navigation_view))))));
-        itemApp.check(matches(isDisplayed()));
     }
 
     @Test

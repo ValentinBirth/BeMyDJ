@@ -12,9 +12,5 @@
             android:id="@+id/nav_network_control"
             android:icon="@drawable/ic_menu_networkcontrol"
             android:title="@string/menu_network_control" />
-        <item
-            android:id="@+id/nav_app_info"
-            android:icon="@drawable/ic_menu_info"
-            android:title="@string/menu_app_instruction" />
     </group>
 </menu>
