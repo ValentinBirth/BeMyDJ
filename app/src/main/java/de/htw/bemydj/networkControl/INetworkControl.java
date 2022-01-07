@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.IntentFilter;
 import android.net.wifi.p2p.WifiP2pDevice;
 
+import java.io.FileDescriptor;
 import java.net.InetAddress;
 import java.util.List;
 
@@ -64,8 +65,9 @@ public interface INetworkControl {
 
     /**
      * creates an Server Socket
+     * @param fileDescriptor fd to the file which should be transferred
      */
-    void createServerSocket();
+    void createServerSocket(FileDescriptor fileDescriptor);
 
     /**
      * creates an Client Socket

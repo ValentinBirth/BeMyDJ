@@ -26,6 +26,6 @@ public class MyLifecycleObserver implements DefaultLifecycleObserver {
     }
 
     public void selectMusicFile(){
-        musicFileResultLauncher.launch("audio/*");
+        musicFileResultLauncher.launch("audio/mpeg");
     }
 }
