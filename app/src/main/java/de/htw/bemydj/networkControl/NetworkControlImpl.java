@@ -14,6 +14,7 @@ import android.net.wifi.p2p.WifiP2pManager;
 
 import androidx.core.app.ActivityCompat;
 
+import java.io.FileDescriptor;
 import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.List;
@@ -125,8 +126,8 @@ public class NetworkControlImpl implements INetworkControl {
     }
 
     @Override
-    public void createServerSocket() {
-        serverSocket = new StreamingServer();
+    public void createServerSocket(FileDescriptor fileDescriptor) {
+        serverSocket = new StreamingServer(fileDescriptor);
     }
 
     @Override
