@@ -11,9 +11,9 @@ import de.htw.bemydj.R;
 
 public class RecyclerViewHolderAvailablePeers extends RecyclerView.ViewHolder {
 
-    private TextView tv_Name;
-    private TextView tv_adress;
-    private LinearLayout item_Peer;
+    private final TextView tv_Name;
+    private final TextView tv_adress;
+    private final LinearLayout item_Peer;
 
     public RecyclerViewHolderAvailablePeers(@NonNull View itemView) {
         super(itemView);

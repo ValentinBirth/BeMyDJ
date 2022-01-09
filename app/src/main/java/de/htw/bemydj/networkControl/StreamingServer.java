@@ -17,8 +17,8 @@ public class StreamingServer extends Thread{
 
     private static final String TAG = StreamingServer.class.toString();
     private Socket socket;
-    private FileDescriptor fileDescriptor;
-    private byte[] buffer = new byte[1024];
+    private final FileDescriptor fileDescriptor;
+    private final byte[] buffer = new byte[1024];
 
 
     public StreamingServer (FileDescriptor fileDescriptor){

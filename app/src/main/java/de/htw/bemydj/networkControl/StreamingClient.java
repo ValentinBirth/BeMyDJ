@@ -19,8 +19,8 @@ public class StreamingClient extends Thread{
 
     private static final String TAG = StreamingClient.class.toString();
     private final Socket socket;
-    private InetAddress hostAddr;
-    private byte[] buffer = new byte[1024];
+    private final InetAddress hostAddr;
+    private final byte[] buffer = new byte[1024];
 
     public StreamingClient(InetAddress hostAddr){
         this.hostAddr = hostAddr;

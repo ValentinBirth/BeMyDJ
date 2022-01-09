@@ -30,11 +30,11 @@ public class NetworkControlImpl implements INetworkControl {
     private final MyDiscoverPeersListener myDiscoverPeersListener;
     private final MyStopDiscoverPeersListener myStopDiscoverPeersListener;
     private final MyConnectListener myConnectListener;
-    private List<WifiP2pDevice> peers;
+    private final List<WifiP2pDevice> peers;
     private final NetworkControlActivity ncActivity;
     private final MyChannelListener myChannelListener;
-    private List<UserImpl> availablePeerList;
-    private List<UserImpl> groupPeerList;
+    private final List<UserImpl> availablePeerList;
+    private final List<UserImpl> groupPeerList;
     private StreamingClient clientSocket;
     private StreamingServer serverSocket;
 

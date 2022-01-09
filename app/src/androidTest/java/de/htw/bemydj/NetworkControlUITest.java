@@ -78,7 +78,7 @@ public class NetworkControlUITest {
 
         ViewInteraction networkControlTab = onView(
                 allOf(withParent(allOf(withContentDescription("Network Control"),
-                        withParent(IsInstanceOf.<View>instanceOf(android.widget.LinearLayout.class)))),
+                        withParent(IsInstanceOf.instanceOf(android.widget.LinearLayout.class)))),
                         isDisplayed()));
 
         navBar.perform(click());
@@ -111,7 +111,7 @@ public class NetworkControlUITest {
 
         ViewInteraction availableListenerTab = onView(
                 allOf(withParent(allOf(withContentDescription("Available Listeners"),
-                                withParent(IsInstanceOf.<View>instanceOf(android.widget.LinearLayout.class)))),
+                                withParent(IsInstanceOf.instanceOf(android.widget.LinearLayout.class)))),
                         isDisplayed()));
 
         navBar.perform(click());
@@ -144,7 +144,7 @@ public class NetworkControlUITest {
 
         ViewInteraction groupTab = onView(
                 allOf(withParent(allOf(withContentDescription("Group"),
-                        withParent(IsInstanceOf.<View>instanceOf(android.widget.LinearLayout.class)))),
+                        withParent(IsInstanceOf.instanceOf(android.widget.LinearLayout.class)))),
                         isDisplayed()));
 
         navBar.perform(click());
@@ -177,7 +177,7 @@ public class NetworkControlUITest {
 
         ViewInteraction networkControlTab = onView(
                 allOf(withParent(allOf(withContentDescription("Network Control"),
-                        withParent(IsInstanceOf.<View>instanceOf(android.widget.LinearLayout.class)))),
+                        withParent(IsInstanceOf.instanceOf(android.widget.LinearLayout.class)))),
                         isDisplayed()));
 
         ViewInteraction startDiscoverySwitch = onView(
