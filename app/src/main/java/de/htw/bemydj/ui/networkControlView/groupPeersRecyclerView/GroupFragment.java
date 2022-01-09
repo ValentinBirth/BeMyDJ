@@ -33,7 +33,7 @@ public class GroupFragment extends Fragment implements SwipeRefreshLayout.OnRefr
         groupPeersRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
 
-        mSwipeRefreshLayout = v.findViewById(R.id.swipe_container_group);
+        mSwipeRefreshLayout = v.findViewById(R.id.fragment_group);
         mSwipeRefreshLayout.setOnRefreshListener(this);
 
         mSwipeRefreshLayout.post(() -> {
