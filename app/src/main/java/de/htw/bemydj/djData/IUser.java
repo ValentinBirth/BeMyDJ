@@ -1,7 +1,5 @@
 package de.htw.bemydj.djData;
 
-import java.util.LinkedList;
-
 /**
  * interface datastructure for a user
  */

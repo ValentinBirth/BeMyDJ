@@ -10,22 +10,9 @@
         android:name="de.htw.bemydj.ui.homeScreen.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
-
-    <fragment
-        android:id="@+id/nav_user_info"
-        android:name="de.htw.bemydj.ui.userInfo.UserInfoFragment"
-        android:label="@string/menu_user_info"
-        tools:layout="@layout/fragment_user_info" />
-
     <activity
         android:id="@+id/nav_network_control"
         android:name="de.htw.bemydj.ui.networkControlView.NetworkControlActivity"
         android:label="@string/menu_network_control"
         tools:layout="@layout/activity_network_control" />
-
-    <fragment
-        android:id="@+id/nav_app_info"
-        android:name="de.htw.bemydj.ui.appInstruction.AppInstructionFragment"
-        android:label="@string/menu_app_instruction"
-        tools:layout="@layout/fragment_app_instruction" />
 </navigation>
