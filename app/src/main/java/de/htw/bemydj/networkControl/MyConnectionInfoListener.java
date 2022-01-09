@@ -16,7 +16,6 @@ public class MyConnectionInfoListener implements WifiP2pManager.ConnectionInfoLi
 
     @Override
     public void onConnectionInfoAvailable(WifiP2pInfo wifiP2pInfo) {
-        //TODO implement InfoListener
         InetAddress groupOwnerAdress = wifiP2pInfo.groupOwnerAddress;
         if (wifiP2pInfo.groupFormed && wifiP2pInfo.isGroupOwner) {
             //networkControlImpl.createServerSocket();
