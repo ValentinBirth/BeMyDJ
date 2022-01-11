@@ -10,7 +10,9 @@ import android.content.pm.PackageManager;
 import android.net.wifi.WpsInfo;
 import android.net.wifi.p2p.WifiP2pConfig;
 import android.net.wifi.p2p.WifiP2pDevice;
+import android.net.wifi.p2p.WifiP2pGroup;
 import android.net.wifi.p2p.WifiP2pManager;
+import android.util.Log;
 
 import androidx.core.app.ActivityCompat;
 
@@ -37,6 +39,7 @@ public class NetworkControlImpl implements INetworkControl {
     private final List<UserImpl> groupPeerList;
     private StreamingClient clientSocket;
     private StreamingServer serverSocket;
+    private WifiP2pManager.GroupInfoListener myDisconnectListener;
 
     public NetworkControlImpl(NetworkControlActivity ncActivity) {
         this.peers = new ArrayList<>();
@@ -60,6 +63,7 @@ public class NetworkControlImpl implements INetworkControl {
         intentFilter.addAction(WifiP2pManager.WIFI_P2P_CONNECTION_CHANGED_ACTION);
 
         this.broadcastReceiver = new WifiP2pBroadcastReceiver(wifiP2pManager, channel, ncActivity, myPeerListListener, myGroupInfoListener);
+        this.myDisconnectListener = new MyDisconnectListener(wifiP2pManager,channel);
     }
 
     @Override
@@ -88,6 +92,16 @@ public class NetworkControlImpl implements INetworkControl {
             ActivityCompat.requestPermissions(ncActivity, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
         }
         wifiP2pManager.connect(channel, config, myConnectListener);
+    }
+
+    @Override
+    public void disconnect() {
+        if (wifiP2pManager != null && channel != null) {
+            if (ActivityCompat.checkSelfPermission(ncActivity, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(ncActivity, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+            }
+            wifiP2pManager.requestGroupInfo(channel, myDisconnectListener);
+        }
     }
 
     @Override

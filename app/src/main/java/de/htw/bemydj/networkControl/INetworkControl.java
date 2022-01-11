@@ -28,6 +28,11 @@ public interface INetworkControl {
      */
     void connect (String deviceAddress);
 
+    /**
+     * disconnect from p2p group
+     */
+    void disconnect();
+
     /** getter for IntentFilter
      * @return an IntentFilter
      */
