@@ -2,7 +2,6 @@ package de.htw.bemydj;
 
 
 import static androidx.test.espresso.Espresso.onView;
-import static androidx.test.espresso.Espresso.pressBack;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isChecked;
@@ -14,9 +13,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withParent;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.allOf;
-import static org.hamcrest.Matchers.hasProperty;
 import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.not;
 
 import android.view.View;
 import android.view.ViewGroup;
@@ -154,7 +151,7 @@ public class NetworkControlUITest {
     }
 
     @Test
-    public void networkControlSwitch(){
+    public void networkControlUI(){
         ViewInteraction navBar = onView(
                 allOf(withContentDescription("Navigationsleiste öffnen"),
                         childAtPosition(
@@ -187,9 +184,12 @@ public class NetworkControlUITest {
 
         ViewInteraction connectionStatus = onView(withId(R.id.connectionStatus));
 
+        ViewInteraction disconnectBtn = onView(withId(R.id.disconnectBtn));
+
         navBar.perform(click());
         networkControlItem.perform(click());
         networkControlTab.perform(click());
+        disconnectBtn.check(matches(isDisplayed()));
         startDiscoverySwitch.check(matches(isNotChecked()));
         startDiscoverySwitch.perform(click());
         startDiscoverySwitch.check(matches(isChecked()));

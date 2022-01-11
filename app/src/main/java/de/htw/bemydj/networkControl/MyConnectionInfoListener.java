@@ -20,13 +20,13 @@ public class MyConnectionInfoListener implements WifiP2pManager.ConnectionInfoLi
     public void onConnectionInfoAvailable(WifiP2pInfo wifiP2pInfo) {
         InetAddress groupOwnerAdress = wifiP2pInfo.groupOwnerAddress;
         if (wifiP2pInfo.groupFormed && wifiP2pInfo.isGroupOwner) {
-            networkControlImpl.createServerSocket(fileDescriptor);
-            networkControlImpl.getServerSocket().start();
+            //networkControlImpl.createServerSocket(fileDescriptor);
+            //networkControlImpl.getServerSocket().start();
             Log.e(TAG,"Device is Host");
         } else if (wifiP2pInfo.groupFormed) {
             Log.e(TAG,"Device is Client");
-            networkControlImpl.createClientSocket(groupOwnerAdress);
-            networkControlImpl.getClientSocket().start();
+            //networkControlImpl.createClientSocket(groupOwnerAdress);
+            //networkControlImpl.getClientSocket().start();
         }
     }
 }

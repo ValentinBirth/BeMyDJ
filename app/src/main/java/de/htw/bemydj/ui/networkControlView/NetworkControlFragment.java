@@ -5,6 +5,7 @@ import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -33,6 +34,8 @@ public class NetworkControlFragment extends Fragment {
 
         Switch discoverPeersSwitch = v.findViewById(R.id.discoverPeersSwitch);
         discoverPeersSwitch.setOnCheckedChangeListener(new DiscoverPeersSwitchListener(networkControlActivity));
+        Button disconnectBtn = v.findViewById(R.id.disconnectBtn);
+        disconnectBtn.setOnClickListener(new DisconnectButtonListener(networkControlActivity));
         return v;
     }
 }
